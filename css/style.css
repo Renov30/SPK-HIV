@@ -1,0 +1,540 @@
+:root {
+  --primary: #51b56d;
+  --secondary: #2e683e;
+  --third: #ff9500;
+  --bg: #fff;
+  --font: #111827;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: var(--font);
+}
+
+/* navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid var(--secondary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.navbar .navbar-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.navbar .navbar-logo span {
+  color: var(--third);
+}
+
+.navbar .navbar-nav a {
+  color: var(--font);
+  display: inline-block;
+  font-size: 1.2rem;
+  margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: var(--third);
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--third);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.navbar .navbar-extra {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .navbar-extra a {
+  color: var(--font);
+  font-size: 1.2rem;
+  margin: 0 1rem;
+  /* color: var(--font);
+  margin: 0 0.5rem; */
+}
+
+.navbar .navbar-extra a:hover {
+  color: var(--third);
+}
+
+/* button login */
+.navbar .navbar-extra .login {
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1rem;
+  border: 1px solid rgba(1, 1, 3, 0.5);
+  border-radius: 5rem;
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-extra .login:hover {
+  border: 1px solid rgba(1, 1, 3, 1);
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+/* hero section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url("../img/header-bg-2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* gradasi img hero */
+.hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 8%,
+    rgba(255, 255, 255, 0) 50%
+  );
+}
+
+.hero .content {
+  padding: 1.4rem 10%;
+  max-width: 60rem;
+}
+
+.hero .content h1 {
+  font-size: 3.5em;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.8);
+  line-height: 1.2;
+}
+
+/* .hero .content h1 span {
+  color: var(--third);
+} */
+
+/* .hero .content h1 .green {
+  color: var(--secondary);
+} */
+
+.hero .content p {
+  font-size: 1.6rem;
+  margin-top: 1rem;
+  line-height: 1.4;
+  font-weight: 400;
+  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.8);
+  color: #fff;
+}
+
+.hero .content .cta {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: var(--secondary);
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+}
+/* about section */
+.about,
+.menu,
+.contact,
+.visi-misi,
+.photo-grid {
+  padding: 8rem 10% 1.4rem;
+}
+
+.about h2,
+.menu h2,
+.contact h2,
+.visi-misi h2,
+.photo-grid h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+}
+
+.about h2 span,
+.menu h2 span,
+.contact h2 span,
+.visi-misi h2 span,
+.photo-grid h2 span {
+  color: var(--primary);
+}
+
+.about .row {
+  display: flex;
+}
+
+.about .row .about-img {
+  flex: 1 1 45rem;
+}
+
+.about .row .about-img img {
+  width: 100%;
+}
+
+.about .row .content {
+  flex: 1 1 35rem;
+  padding: 0 1rem;
+}
+
+.about .row .content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.about .row .content p {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  font-weight: 200;
+  line-height: 1.6;
+}
+/* visi misi section */
+.visi-misi .row {
+  display: inline-block;
+}
+
+.visi-misi .row .visi {
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 1px 1px 0.5rem rgba(1, 1, 3, 0.5);
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.visi-misi .row .visi h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.visi-misi .row .visi p {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  font-weight: 200;
+  line-height: 1.6;
+}
+
+.visi-misi .row .misi-isi {
+  box-shadow: 1px 1px 0.5rem rgba(1, 1, 3, 0.5);
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
+
+.visi-misi .row .misi-isi h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.visi-misi .row .misi-isi .misi {
+  display: flex;
+}
+
+.visi-misi .row .misi-isi .misi .misi-img {
+  flex: 1 1 30rem;
+}
+
+.visi-misi .row .misi-isi .misi .misi-img img {
+  width: 100%;
+}
+
+.visi-misi .row .misi-isi .misi .content {
+}
+
+.visi-misi .row .misi-isi .misi .content ol {
+  font-size: 1.2rem;
+  font-weight: 200;
+  line-height: 1.8;
+  display: block;
+  padding-inline-start: 50px;
+  unicode-bidi: isolate;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* menu section */
+.menu h2,
+.contact h2 {
+  margin-bottom: 1rem;
+}
+
+.menu p,
+.contact p {
+  text-align: center;
+  max-width: 50rem;
+  margin: auto;
+  font-weight: 200;
+  line-height: 1.6;
+  font-size: 1.2rem;
+}
+
+.menu .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+  justify-content: center;
+}
+
+.menu .row .menu-card {
+  text-align: center;
+  padding-bottom: 4rem;
+}
+
+.menu .row .menu-card img {
+  border-radius: 50%;
+  width: 80%;
+}
+
+.menu .row .menu-card .menu-card-title {
+  margin: 1rem auto 0.5rem;
+}
+
+/* contact section */
+.contact .row {
+  display: flex;
+  margin-top: 2rem;
+  background-color: #f5f5f5;
+}
+
+.contact .row .map {
+  flex: 1 1 45rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.contact .row form {
+  flex: 1 1 45rem;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.contact .row form .input-group {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: var(--bg);
+  border: 1px solid #222;
+  padding-left: 2rem;
+  border-radius: 0.5rem;
+}
+
+.contact .row form .input-group input {
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.2rem;
+  background: none;
+  color: #111827;
+}
+
+.contact .row form .kirim {
+  margin-top: 3rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+  color: #fff;
+  background-color: var(--secondary);
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+/* footer */
+footer {
+  background-color: var(--primary);
+  text-align: center;
+  padding: 1rem 0 3rem;
+  margin-top: 3rem;
+}
+
+footer .socials {
+  padding: 1rem 0;
+}
+
+footer .socials a {
+  color: #fff;
+  margin: 1rem;
+}
+
+footer .socials a:hover,
+footer .links a:hover,
+footer .credit a:hover {
+  color: var(--third);
+}
+
+footer .links {
+  margin-bottom: 1.4rem;
+}
+
+footer .links a {
+  color: #fff;
+  padding: 0.7rem 1rem;
+}
+
+footer .credit {
+  font-size: 0.8rem;
+}
+
+footer .credit a {
+  color: var(--bg);
+  font-weight: 700;
+}
+
+/* Halaman data */
+/* photo grid */
+.photo-grid .item {
+  width: 33%;
+}
+
+/* Media Queries */
+/* laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+/* Tablet */
+@media (max-width: 758px) {
+  html {
+    font-size: 62.5%;
+  }
+
+  #hamburger-menu {
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: var(--secondary);
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-nav a {
+    color: var(--bg);
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.2);
+  }
+
+  /* about */
+  .about .row {
+    flex-wrap: wrap;
+  }
+
+  .about .row .about-img img {
+    height: 24rem;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .about .row .content {
+    padding: 0;
+  }
+
+  .about .row .content h3 {
+    margin-top: 1rem;
+    font-size: 2rem;
+  }
+
+  .about .row .content p {
+    font-size: 1.2rem;
+  }
+
+  /* visi misi */
+  .visi-misi p {
+    font-size: 1.2rem;
+  }
+
+  .visi-misi .misi-isi .misi {
+    flex-wrap: wrap;
+  }
+
+  .visi-misi .misi-isi .misi .misi-img img {
+    height: 24rem;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 1rem;
+  }
+
+  .visi-misi .row .misi-isi .misi .content ol {
+    padding-inline-start: 10px;
+  }
+  /* menu */
+  .menu p {
+    font-size: 1.2rem;
+  }
+
+  /* contact */
+  .contact .row {
+    flex-wrap: wrap;
+  }
+
+  .contact .row .map {
+    height: 30rem;
+  }
+
+  .contact .row form {
+    padding-top: 0;
+  }
+}
+/* Mobile */
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+}
