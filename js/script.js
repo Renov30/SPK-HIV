@@ -31,3 +31,18 @@ document.addEventListener("click", function (e) {
     navbarNav.classList.remove("active");
   }
 });
+
+const toggleViewBtn = document.getElementById("toggleViewBtn");
+const cardView = document.getElementById("cardView");
+const tableView = document.getElementById("tableView");
+
+toggleViewBtn.addEventListener("click", () => {
+  cardView.classList.toggle("hidden");
+  tableView.classList.toggle("hidden");
+  if (cardView.classList.contains("hidden")) {
+    toggleViewBtn.innerHTML = '<i data-feather="image"></i>&nbsp;Toggle View';
+  } else {
+    toggleViewBtn.innerHTML = '<i data-feather="table"></i>&nbsp;Toggle View';
+  }
+  feather.replace();
+});
