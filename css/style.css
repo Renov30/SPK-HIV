@@ -558,10 +558,14 @@ td button {
   border-radius: 0.5rem;
 }
 
+.detail h2 {
+  margin-bottom: 0.5rem;
+}
 .detail .row {
   display: flex;
   padding: 1rem;
   background-color: var(--white);
+  margin-bottom: 1rem;
 }
 
 .detail .row #map {
