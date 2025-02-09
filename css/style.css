@@ -26,6 +26,15 @@ body {
   color: var(--font);
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
 /* navbar */
 .navbar {
   display: flex;
@@ -181,7 +190,8 @@ body {
 .menu,
 .contact,
 .visi-misi,
-.photo-grid {
+.photo-grid,
+.detail {
   padding: 8rem 10% 1.4rem;
 }
 
@@ -474,38 +484,34 @@ footer .credit a {
 }
 
 .photo-grid .grid {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 10px; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
 }
 
 .photo-grid .grid .card {
-  width: 295px;
-  height: 25rem;
   background-color: #fff;
-  border-radius: 0.5rem;
-  /* box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5); */
-  overflow: hidden;
-  /* margin: 0.5rem 0.5rem 1rem; */
+  border-radius: 1rem;
   border: 1px solid #d3d6d8;
+  padding: 0.8rem;
 }
 .photo-grid .grid .card:hover {
-  /* background-color: #51b56d; */
-  /* box-shadow: 1px 2px 7px rgba(1, 1, 3, 0.5); */
   border: 1px solid var(--secondary);
   transition: 0.4s;
+  cursor: pointer;
 }
 
 .photo-grid .grid .card img {
   width: 100%;
+  height: 10rem;
   object-fit: cover;
-  height: 50%;
+  border-radius: 0.5rem;
 }
 
-.photo-grid .grid .card .card-content {
-  padding: 1rem;
-}
 .photo-grid .grid .card .card-content .nama-petani {
   font-size: 1.1rem;
   font-weight: 500;
@@ -516,6 +522,7 @@ footer .credit a {
   font-weight: 200;
   line-height: 1.6;
 }
+
 #cardView.hidden {
   display: none !important;
 }
@@ -532,6 +539,7 @@ th,
 td {
   padding: 8px 16px;
   border-bottom: 1px solid #e2e8f0;
+  text-align: center;
 }
 th {
   background-color: #edf2f7;
@@ -542,6 +550,43 @@ td img {
   object-fit: cover;
   border-radius: 4px;
 }
+
+td button {
+  background-color: var(--secondary);
+  padding: 0.8rem;
+  color: var(--white);
+  border-radius: 0.5rem;
+}
+
+.detail .row {
+  display: flex;
+  padding: 1rem;
+  background-color: var(--white);
+}
+
+.detail .row #map {
+  flex: 1 1 45rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.detail .row .teks {
+  flex: 1 1 45rem;
+  padding: 1rem;
+}
+
+.detail .row .teks table {
+  border: none;
+}
+.detail .row .teks table tr {
+  border: none;
+}
+.detail .row .teks table tr td {
+  border: none;
+  text-align: left;
+  vertical-align: top;
+}
+
 /* Media Queries */
 /* laptop */
 @media (max-width: 1366px) {
