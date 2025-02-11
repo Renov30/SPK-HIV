@@ -40,56 +40,33 @@ toggleViewBtn.addEventListener("click", () => {
   cardView.classList.toggle("hidden");
   tableView.classList.toggle("hidden");
   if (cardView.classList.contains("hidden")) {
-    toggleViewBtn.innerHTML = '<i data-feather="image"></i>&nbsp;Toggle View';
+    toggleViewBtn.id = "toggleViewBtnTable";
+    toggleViewBtn.innerHTML = '<i data-feather="image"></i>&nbsp;Table View';
   } else {
-    toggleViewBtn.innerHTML = '<i data-feather="table"></i>&nbsp;Toggle View';
+    toggleViewBtn.id = "toggleViewBtn";
+    toggleViewBtn.innerHTML = '<i data-feather="table"></i>&nbsp;Card View';
   }
   feather.replace();
 });
 
-// Open the Modal
-function openModal() {
-  document.getElementById("myModal").style.display = "block";
-  document.getElementById("nav").style.display = "none";
+function openLightbox(src) {
+  document.getElementById("lightbox-img").src = src;
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("nav").style.zIndex = "0";
 }
 
-// Close the Modal
-function closeModal() {
-  document.getElementById("myModal").style.display = "none";
-  document.getElementById("nav").style.display = "flex";
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+  document.getElementById("nav").style.zIndex = "9999";
 }
 
-var slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides((slideIndex += n));
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides((slideIndex = n));
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {
-    slideIndex = 1;
+function toggleGallery() {
+  const gallery = document.getElementById("gallery");
+  gallery.classList.toggle("rows");
+  const showMoreText = document.querySelector(".show-more");
+  if (gallery.classList.contains("rows")) {
+    showMoreText.textContent = "Show Less";
+  } else {
+    showMoreText.textContent = "Show More";
   }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
-  captionText.innerHTML = dots[slideIndex - 1].alt;
 }
