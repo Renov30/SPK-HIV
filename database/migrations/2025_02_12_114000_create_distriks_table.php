@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('distriks', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->string('name');
             $table->string('slug');
             $table->string('luas_tanam');
             $table->string('luas_panen');
