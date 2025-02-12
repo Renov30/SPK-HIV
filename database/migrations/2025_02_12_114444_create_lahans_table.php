@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('lahans', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->string('hasil_produksi');
+            $table->string('luas_lahan');
+            $table->foreignId('distrik_id')->constrained()->cascadeOnDelete();
+            $table->string('alamat');
+            $table->string('no_hp');
+            $table->string('longitude');
+            $table->string('latitude');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('galeris', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->foreignId('lahan_id')->constrained()->cascadeOnDelete();
+            $table->string('gambar');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
