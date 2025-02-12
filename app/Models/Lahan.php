@@ -10,7 +10,7 @@ class Lahan extends Model
 {
     //
     protected $fillable = [
-        'nama',
+        'name',
         'slug',
         'hasil_produksi',
         'luas_lahan',

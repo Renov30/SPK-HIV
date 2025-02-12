@@ -12,7 +12,7 @@ class Distrik extends Model
     //
     use SoftDeletes;
     protected $fillable = [
-        'nama',
+        'name',
         'slug',
         'luas_tanam',
         'luas_panen',
@@ -22,7 +22,7 @@ class Distrik extends Model
 
     public function setNameAttribute($value)
     {
-        $this->attributes['nama'] = $value;
+        $this->attributes['name'] = $value;
         $this->attributes['slug'] = Str::slug($value);
     }
 
