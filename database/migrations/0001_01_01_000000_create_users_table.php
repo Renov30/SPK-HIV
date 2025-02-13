@@ -18,7 +18,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('no_hp')->nullable();
-            $table->string('tempat_tgl_lahir')->nullable();
+            $table->string('tempat')->nullable();
+            $table->date('tgl_lahir')->nullable();
             $table->string('pekerjaan')->nullable();
             $table->rememberToken();
             $table->timestamps();
