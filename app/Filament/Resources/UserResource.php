@@ -74,9 +74,23 @@ class UserResource extends Resource
             ->columns([
                 //
                 TextColumn::make('name')
+                    ->label('Nama')
                     ->sortable()
                     ->searchable(),
                 TextColumn::make('email')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('no_hp')
+                    ->label('No. Hp')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('tempat_lahir')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('tgl_lahir')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('pekerjaan')
                     ->sortable()
                     ->searchable(),
                 TextColumn::make('roles.name')

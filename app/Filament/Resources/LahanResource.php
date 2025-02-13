@@ -6,9 +6,13 @@ use App\Filament\Resources\LahanResource\Pages;
 use App\Filament\Resources\LahanResource\RelationManagers;
 use App\Models\Lahan;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\TextInputColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -17,13 +21,43 @@ class LahanResource extends Resource
 {
     protected static ?string $model = Lahan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $modelLabel = 'Lahan'; // Label untuk satu item
+    protected static ?string $pluralModelLabel = 'Lahan'; // Label untuk daftar item
+
+    protected static ?string $navigationIcon = 'heroicon-s-map-pin';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 //
+                TextInput::make('name')
+                    ->label('Nama')
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('hasil_produksi')
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('luas_lahan')
+                    ->required()
+                    ->maxLength(255),
+                Select::make('distrik')
+                    ->label('Distrik')
+                    ->required()
+                    ->relationship('distrik', 'name'),
+                TextInput::make('alamat')
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('no_hp')
+                    ->label('No. Hp')
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('longitude')
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('latitude')
+                    ->required()
+                    ->maxLength(255),
             ]);
     }
 
@@ -32,6 +66,33 @@ class LahanResource extends Resource
         return $table
             ->columns([
                 //
+                TextColumn::make('name')
+                    ->label('Nama')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('hasil_produksi')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('luas_lahan')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('distrik_id')
+                    ->label('Distrik')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('alamat')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('no_hp')
+                    ->label('No. Hp')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('longitude')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('latitude')
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

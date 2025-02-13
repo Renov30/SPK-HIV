@@ -6,9 +6,11 @@ use App\Filament\Resources\DistrikResource\Pages;
 use App\Filament\Resources\DistrikResource\RelationManagers;
 use App\Models\Distrik;
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -17,13 +19,40 @@ class DistrikResource extends Resource
 {
     protected static ?string $model = Distrik::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $modelLabel = 'Distrik'; // Label untuk satu item
+    protected static ?string $pluralModelLabel = 'Distrik'; // Label untuk daftar item
+
+    protected static ?string $navigationIcon = 'heroicon-s-map';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 //
+                TextInput::make('name')
+                    ->label('Nama Distrik')
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('luas_tanam')
+                    ->label('Luas Tanam')
+                    ->required()
+                    ->maxLength(255)
+                    ->suffix('hektar'),
+                TextInput::make('luas_panen')
+                    ->label('Luas Panen')
+                    ->required()
+                    ->maxLength(255)
+                    ->suffix('hektar'),
+                TextInput::make('produksi')
+                    ->label('Produksi')
+                    ->required()
+                    ->maxLength(255)
+                    ->suffix('ton'),
+                TextInput::make('produktivitas')
+                    ->label('Produktivitas')
+                    ->required()
+                    ->maxLength(255)
+                    ->suffix('ton/hektar'),
             ]);
     }
 
@@ -32,6 +61,22 @@ class DistrikResource extends Resource
         return $table
             ->columns([
                 //
+                TextColumn::make('name')
+                    ->label('Nama')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('luas_tanam')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('luas_panen')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('produksi')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('produktivitas')
+                    ->sortable()
+                    ->searchable(),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
