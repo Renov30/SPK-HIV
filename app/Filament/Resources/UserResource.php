@@ -61,10 +61,10 @@ class UserResource extends Resource
                     ->label('Pekerjaan')
                     ->required()
                     ->maxLength(255),
-                // Select::make('roles')
-                //     ->label('Role')
-                //     ->required()
-                //     ->relationship('roles', 'name'),
+                Select::make('roles')
+                    ->label('Role')
+                    ->required()
+                    ->relationship('roles', 'name'),
             ]);
     }
 
