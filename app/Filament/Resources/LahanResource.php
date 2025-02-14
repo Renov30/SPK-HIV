@@ -32,16 +32,18 @@ class LahanResource extends Resource
             ->schema([
                 //
                 TextInput::make('name')
-                    ->label('Nama')
+                    ->label('Nama Petani')
                     ->required()
                     ->maxLength(255),
                 TextInput::make('hasil_produksi')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->suffix('ton'),
                 TextInput::make('luas_lahan')
                     ->required()
-                    ->maxLength(255),
-                Select::make('distrik')
+                    ->maxLength(255)
+                    ->suffix('hektar'),
+                Select::make('distrik_id')
                     ->label('Distrik')
                     ->required()
                     ->relationship('distrik', 'name'),
