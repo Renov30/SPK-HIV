@@ -11,9 +11,9 @@ class Galeri extends Model
     //
     use SoftDeletes;
     protected $fillable = [
-        'name',
         'lahan_id',
         'gambar',
+        'thumbnail',
     ];
 
     public function lahan(): BelongsTo

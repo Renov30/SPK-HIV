@@ -6,6 +6,10 @@ use App\Filament\Resources\GaleriResource\Pages;
 use App\Filament\Resources\GaleriResource\RelationManagers;
 use App\Models\Galeri;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -29,6 +33,18 @@ class GaleriResource extends Resource
         return $form
             ->schema([
                 //
+                Select::make('lahan_id')
+                    ->label('Lahan')
+                    ->required()
+                    ->relationship('lahan', 'name'),
+                FileUpload::make('gambar')
+                    ->required()
+                    ->image()
+                    ->multiple(),
+                ToggleButtons::make('thumbnail')
+                    ->label('Thumbnail?')
+                    ->boolean()
+                    ->grouped(),
             ]);
     }
 
@@ -37,18 +53,16 @@ class GaleriResource extends Resource
         return $table
             ->columns([
                 //
-                TextColumn::make('name')
-                    ->label('Nama')
-                    ->sortable()
-                    ->searchable(),
-                TextColumn::make('lahan_id')
+                TextColumn::make('lahan.name')
                     ->label('Lahan')
                     ->sortable()
                     ->searchable(),
                 ImageColumn::make('gambar')
-                    ->label('Foto')
-                    ->width('200')
-                    ->height('100'),
+                    ->label('Foto'),
+                TextColumn::make('thumbnail')
+                    ->sortable()
+                    ->searchable()
+                    ->formatStateUsing(fn($state) => $state ? 'Ya' : 'Tidak'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
