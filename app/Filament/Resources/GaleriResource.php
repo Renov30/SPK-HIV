@@ -15,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -38,13 +39,9 @@ class GaleriResource extends Resource
                     ->required()
                     ->relationship('lahan', 'name'),
                 FileUpload::make('gambar')
+                    ->label('Foto')
                     ->required()
-                    ->image()
-                    ->multiple(),
-                ToggleButtons::make('thumbnail')
-                    ->label('Thumbnail?')
-                    ->boolean()
-                    ->grouped(),
+                    ->image(),
             ]);
     }
 
@@ -59,10 +56,9 @@ class GaleriResource extends Resource
                     ->searchable(),
                 ImageColumn::make('gambar')
                     ->label('Foto'),
-                TextColumn::make('thumbnail')
-                    ->sortable()
-                    ->searchable()
-                    ->formatStateUsing(fn($state) => $state ? 'Ya' : 'Tidak'),
+                ToggleColumn::make('thumbnail')
+                    ->afterStateUpdated(fn($record, $state) => $record->save())
+                    ->sortable(),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
