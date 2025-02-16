@@ -43,7 +43,9 @@ class UserResource extends Resource
                     ->required()
                     ->helperText('Minimal 6 karakter')
                     ->minLength(6)
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->password()
+                    ->revealable(),
                 TextInput::make('no_hp')
                     ->required()
                     ->label('No. Hp')
