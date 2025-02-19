@@ -21,7 +21,8 @@ class FrontController extends Controller
     public function detail(Lahan $lahan)
     {
         $lahan->load(['distrik']);
-        return view('front.detail', compact('lahan'));
+        $semua = Lahan::all();
+        return view('front.detail', compact('lahan', 'semua'));
     }
 
     public function peta()
