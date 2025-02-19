@@ -13,7 +13,7 @@
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores,
           reprehenderit!
         </p>
-        <a href="data.html" class="cta">Lihat Data</a>
+        <a href="{{route('front.data')}}" class="cta">Lihat Data</a>
       </main>
     </section>
     <!-- hero section end -->
