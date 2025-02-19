@@ -24,7 +24,7 @@
       <!-- card view -->
       <div class="grid" id="cardView">
         @forelse ($semua as $lahan)
-        <x-data-card :data="$lahan"/>
+          <x-data-card :data="$lahan"/>
         @empty
           <p>Belum ada data lahan</p>
         @endforelse
@@ -36,113 +36,21 @@
         <table>
           <thead>
             <tr>
-              <th>Image</th>
-              <th>Title</th>
-              <th>Nama</th>
-              <th>KT</th>
+              <th>Foto</th>
+              <th>Nama Lahan</th>
+              <th>Nama Petani</th>
               <th>Distrik</th>
+              <th>Alamat</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <img src="img/gallery-lahan-jagung/1.jpeg" alt="Semangga" />
-              </td>
-              <td><p class="nama-petani">Lahan Pak Maulana</p></td>
-              <td><p>Nama Petani : Maulana Fauzi</p></td>
-              <td><p>Kelompok Tani : KT. Buaya</p></td>
-              <td><p>Distrik : Semangga</p></td>
-              <td>
-                <p>
-                  <a href="detail.html"><button>Lihat Detail</button></a>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="img/gallery-lahan-jagung/2.png" alt="Semangga" />
-              </td>
-              <td><p class="nama-petani">Lahan Pak Maulana</p></td>
-              <td><p>Nama Petani : Maulana Fauzi</p></td>
-              <td><p>Kelompok Tani : KT. Buaya</p></td>
-              <td><p>Distrik : Semangga</p></td>
-              <td>
-                <p><button>Lihat Detail</button></p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="img/gallery-lahan-jagung/3.jpg" alt="Semangga" />
-              </td>
-              <td><p class="nama-petani">Lahan Pak Maulana</p></td>
-              <td><p>Nama Petani : Maulana Fauzi</p></td>
-              <td><p>Kelompok Tani : KT. Buaya</p></td>
-              <td><p>Distrik : Semangga</p></td>
-              <td>
-                <p><button>Lihat Detail</button></p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="img/gallery-lahan-jagung/4.jpg" alt="Semangga" />
-              </td>
-              <td><p class="nama-petani">Lahan Pak Maulana</p></td>
-              <td><p>Nama Petani : Maulana Fauzi</p></td>
-              <td><p>Kelompok Tani : KT. Buaya</p></td>
-              <td><p>Distrik : Semangga</p></td>
-              <td>
-                <p><button>Lihat Detail</button></p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="img/gallery-lahan-jagung/5.jpg" alt="Semangga" />
-              </td>
-              <td><p class="nama-petani">Lahan Pak Maulana</p></td>
-              <td><p>Nama Petani : Maulana Fauzi</p></td>
-              <td><p>Kelompok Tani : KT. Buaya</p></td>
-              <td><p>Distrik : Semangga</p></td>
-              <td>
-                <p><button>Lihat Detail</button></p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="img/gallery-lahan-jagung/6.jpg" alt="Semangga" />
-              </td>
-              <td><p class="nama-petani">Lahan Pak Maulana</p></td>
-              <td><p>Nama Petani : Maulana Fauzi</p></td>
-              <td><p>Kelompok Tani : KT. Buaya</p></td>
-              <td><p>Distrik : Semangga</p></td>
-              <td>
-                <p><button>Lihat Detail</button></p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="img/gallery-lahan-jagung/7.jpg" alt="Semangga" />
-              </td>
-              <td><p class="nama-petani">Lahan Pak Maulana</p></td>
-              <td><p>Nama Petani : Maulana Fauzi</p></td>
-              <td><p>Kelompok Tani : KT. Buaya</p></td>
-              <td><p>Distrik : Semangga</p></td>
-              <td>
-                <p><button>Lihat Detail</button></p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="img/gallery-lahan-jagung/8.jpeg" alt="Semangga" />
-              </td>
-              <td><p class="nama-petani">Lahan Pak Maulana</p></td>
-              <td><p>Nama Petani : Maulana Fauzi</p></td>
-              <td><p>Kelompok Tani : KT. Buaya</p></td>
-              <td><p>Distrik : Semangga</p></td>
-              <td>
-                <p><button>Lihat Detail</button></p>
-              </td>
-            </tr>
+            @forelse ($semua as $lahan)
+              <x-data-table :data="$lahan"/>              
+            @empty
+              <p>Belum ada data lahan</p>
+            @endforelse
+
           </tbody>
         </table>
       </div>
