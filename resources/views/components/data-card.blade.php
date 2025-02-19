@@ -1,8 +1,6 @@
 <a href="{{route('front.detail', $data->slug)}}">
     <div class="card">
-        @if ($thumbnail)
-            <img src="{{Storage::url($thumbnail->gambar)}}" />
-        @endif
+      <img src="{{Storage::url($data->thumbnail)}}" alt="Semangga" />
       <div class="card-content">
         <p class="nama-petani">Lahan Pak {{$data->name}}</p>
         <p>Nama Petani : {{$data->name}}</p>

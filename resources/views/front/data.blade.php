@@ -23,12 +23,13 @@
 
       <!-- card view -->
       <div class="grid" id="cardView">
-        @foreach ( $semua as $data )
-            @php
-              $thumbnail = $data->galeri->where('thumbnail', true)->first();
-            @endphp
-            <x-data-card :data="$data" :thumbnail="$thumbnail"/>
-        @endforeach
+        @forelse ($semua as $lahan)
+        <x-data-card :data="$lahan"/>
+        @empty
+          <p>Belum ada data lahan</p>
+        @endforelse
+            
+
       </div>
       <!-- table view start -->
       <div class="hidden" id="tableView">
