@@ -28,8 +28,6 @@
         @empty
           <p>Belum ada data lahan</p>
         @endforelse
-            
-
       </div>
       <!-- table view start -->
       <div class="hidden" id="tableView">
@@ -50,7 +48,6 @@
             @empty
               <p>Belum ada data lahan</p>
             @endforelse
-
           </tbody>
         </table>
       </div>

@@ -31,52 +31,37 @@
                         <tr>
                             <td>Nama Lahan</td>
                             <td>:</td>
-                            <td>Lahan Pak Maulana</td>
+                            <td>{{$lahan->name}}</td>
                         </tr>
                         <tr>
                             <td>Nama Petani</td>
                             <td>:</td>
-                            <td>Maulana Fauzi</td>
+                            <td>{{$lahan->name}}</td>
                         </tr>
                         <tr>
-                            <td>Kelompok Tani</td>
+                            <td>Hasil Produksi</td>
                             <td>:</td>
-                            <td>KT PLN</td>
+                            <td>{{$lahan->hasil_produksi}}</td>
+                        </tr>
+                        <tr>
+                            <td>Luas Lahan</td>
+                            <td>:</td>
+                            <td>{{$lahan->luas_lahan}}</td>
                         </tr>
                         <tr>
                             <td>Distrik</td>
                             <td>:</td>
-                            <td>Semangga</td>
+                            <td>{{$lahan->distrik->name}}</td>
                         </tr>
                         <tr>
                             <td>Alamat</td>
                             <td>:</td>
-                            <td>Semangga, Gang mulyadi RT 006 RW 003</td>
+                            <td>{{$lahan->alamat}}</td>
                         </tr>
                         <tr>
-                            <td>Lokasi</td>
+                            <td>No. Hp</td>
                             <td>:</td>
-                            <td>098798656 45798070 767575765</td>
-                        </tr>
-                        <tr>
-                            <td>Luas Tanam</td>
-                            <td>:</td>
-                            <td>25 Hektar</td>
-                        </tr>
-                        <tr>
-                            <td>Luas Panen</td>
-                            <td>:</td>
-                            <td>21 Hektar</td>
-                        </tr>
-                        <tr>
-                            <td>Produksi</td>
-                            <td>:</td>
-                            <td>55.76 ton</td>
-                        </tr>
-                        <tr>
-                            <td>Produktivitas</td>
-                            <td>:</td>
-                            <td>4.50 ton/ha</td>
+                            <td>{{$lahan->no_hp}}</td>
                         </tr>
                     </table>
                 </div>
@@ -138,48 +123,11 @@
             <h3>Lahan Lainnya</h3>
             <!-- card view -->
             <div class="grid" id="cardView">
-                <a href="detail.html">
-                    <div class="card">
-                        <img
-                            src="img/gallery-lahan-jagung/1.jpeg"
-                            alt="Semangga"
-                        />
-                        <div class="card-content">
-                            <p class="nama-petani">Lahan Pak Maulana</p>
-                            <p>Nama Petani : Maulana Fauzi</p>
-                            <p>Kelompok Tani : KT. Buaya</p>
-                            <p>Distrik : Semangga</p>
-                        </div>
-                    </div>
-                </a>
-
-                <div class="card">
-                    <img src="img/gallery-lahan-jagung/2.png" alt="Semangga" />
-                    <div class="card-content">
-                        <p class="nama-petani">Lahan Pak Maulana</p>
-                        <p>Nama Petani : Maulana Fauzi</p>
-                        <p>Kelompok Tani : KT. Buaya</p>
-                        <p>Distrik : Semangga</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="img/gallery-lahan-jagung/3.jpg" alt="Semangga" />
-                    <div class="card-content">
-                        <p class="nama-petani">Lahan Pak Maulana</p>
-                        <p>Nama Petani : Maulana Fauzi</p>
-                        <p>Kelompok Tani : KT. Buaya</p>
-                        <p>Distrik : Semangga</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="img/gallery-lahan-jagung/4.jpg" alt="Semangga" />
-                    <div class="card-content">
-                        <p class="nama-petani">Lahan Pak Maulana</p>
-                        <p>Nama Petani : Maulana Fauzi</p>
-                        <p>Kelompok Tani : KT. Buaya</p>
-                        <p>Distrik : Semangga</p>
-                    </div>
-                </div>
+            @forelse ($semua as $lahan)
+                <x-data-card :data="$lahan"/>
+            @empty
+                <p>Belum ada data lahan</p>
+            @endforelse
             </div>
         </section>
         <!-- other content end -->
