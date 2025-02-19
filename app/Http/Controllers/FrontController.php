@@ -14,8 +14,7 @@ class FrontController extends Controller
 
     public function data()
     {
-        $semua = Lahan::all();
-
+        $semua = Lahan::with('galeri')->get();
         return view('front.data', compact('semua'));
     }
 
