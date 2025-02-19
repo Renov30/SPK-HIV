@@ -72,43 +72,15 @@
         <section class="photos">
             <h3>Foto Lahan</h3>
             <div class="gallery" id="gallery">
-                <img
-                    src="img/gallery-lahan-jagung/1.jpeg"
-                    alt="Foto Lahan 1"
-                    onclick="openLightbox(this.src)"
-                />
-                <img
-                    src="img/gallery-lahan-jagung/2.png"
-                    alt="Foto Lahan 1"
-                    onclick="openLightbox(this.src)"
-                />
-                <img
-                    src="img/gallery-lahan-jagung/3.jpg"
-                    alt="Foto Lahan 1"
-                    onclick="openLightbox(this.src)"
-                />
-                <img
-                    src="img/gallery-lahan-jagung/4.jpg"
-                    alt="Foto Lahan 1"
-                    onclick="openLightbox(this.src)"
-                />
-                <img
-                    src="img/gallery-lahan-jagung/4.jpg"
-                    alt="Foto Lahan 1"
-                    onclick="openLightbox(this.src)"
-                />
-                <img
-                    src="img/gallery-lahan-jagung/4.jpg"
-                    alt="Foto Lahan 1"
-                    onclick="openLightbox(this.src)"
-                />
-                <img
-                    src="img/gallery-lahan-jagung/4.jpg"
-                    alt="Foto Lahan 1"
-                    onclick="openLightbox(this.src)"
-                />
+                @forelse ($lahan->galeri as $foto)
+                <x-galeri-card :data="$foto"/>
+              @empty
+                <p>Belum ada foto lahan</p>
+              @endforelse
             </div>
-            <div class="show-more" onclick="toggleGallery()">Show More</div>
+            @if ($lahan->galeri->count() > 4)
+                <div class="show-more" onclick="toggleGallery()">Show More</div>
+            @endif
         </section>
         <!-- lightbox start -->
         <div class="lightbox" id="lightbox">
