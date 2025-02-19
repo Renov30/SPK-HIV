@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('no_hp');
             $table->string('longitude');
             $table->string('latitude');
+            $table->string('thumbnail');
             $table->softDeletes();
             $table->timestamps();
         });

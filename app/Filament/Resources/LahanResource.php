@@ -6,11 +6,13 @@ use App\Filament\Resources\LahanResource\Pages;
 use App\Filament\Resources\LahanResource\RelationManagers;
 use App\Models\Lahan;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\TextInputColumn;
 use Filament\Tables\Table;
@@ -60,6 +62,9 @@ class LahanResource extends Resource
                 TextInput::make('latitude')
                     ->required()
                     ->maxLength(255),
+                FileUpload::make('thumbnail')
+                    ->required()
+                    ->image(),
             ]);
     }
 
@@ -78,7 +83,7 @@ class LahanResource extends Resource
                 TextColumn::make('luas_lahan')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('distrik_id')
+                TextColumn::make('distrik.name')
                     ->label('Distrik')
                     ->searchable()
                     ->sortable(),
@@ -114,7 +119,7 @@ class LahanResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\GaleriRelationManager::class,
         ];
     }
 

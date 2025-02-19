@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('lahan_id')->constrained()->cascadeOnDelete();
             $table->string('gambar');
-            $table->boolean('thumbnail')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -26,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('galeris', function (Blueprint $table) {
-            $table->dropColumn('thumbnail');
-        });
+        Schema::table('galeris', function (Blueprint $table) {});
     }
 };

@@ -13,7 +13,6 @@ class Galeri extends Model
     protected $fillable = [
         'lahan_id',
         'gambar',
-        'thumbnail',
     ];
 
     public function lahan(): BelongsTo

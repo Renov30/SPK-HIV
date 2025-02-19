@@ -56,9 +56,6 @@ class GaleriResource extends Resource
                     ->searchable(),
                 ImageColumn::make('gambar')
                     ->label('Foto'),
-                ToggleColumn::make('thumbnail')
-                    ->afterStateUpdated(fn($record, $state) => $record->save())
-                    ->sortable(),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
