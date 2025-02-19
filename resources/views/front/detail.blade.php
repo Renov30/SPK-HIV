@@ -1,9 +1,5 @@
 @extends('front.layouts.app')
 @section('title', 'Detail')
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('css/filament/lightbox.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/filament/other.css') }}" />
-@endpush
 @section('content')
     <body>
         <x-nav/>
@@ -189,3 +185,14 @@
         <!-- other content end -->
        <x-footer/>
 @endsection
+@push('after-styles')
+    <link rel="stylesheet" href="{{ asset('css/filament/lightbox.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/filament/other.css') }}" />
+@endpush
+@push('after-scripts')
+    <script
+        async
+        defer
+        src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_MAPS_API_KEY')}}&callback=initMap"
+    ></script>
+@endpush
