@@ -1,38 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data</title>
-    <!-- my icons (feather icons) -->
-    <script src="https://unpkg.com/feather-icons"></script>
-    <!-- my font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- my style -->
-    <link rel="stylesheet" href="css/style.css" />
-    <!-- my script -->
-  </head>
-  <body>
-    <!-- navbar start -->
-    <nav class="navbar">
-      <a href="#" class="navbar-logo">Peta<span>Jagung.</span></a>
-      <div class="navbar-nav">
-        <a href="index.html">Home</a>
-        <a href="index.html#about">Tentang</a>
-        <a href="data.html">Data</a>
-        <a href="peta.html">Peta</a>
-      </div>
-      <div class="navbar-extra">
-        <a href="#" class="login">Masuk</a>
-        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
-      </div>
-    </nav>
-    <!-- navbar end -->
+@extends('front.layouts.app')
+@section('title', 'Data')
+@section('content')
+    <x-nav/>
     <!-- photo grid start -->
     <section class="photo-grid">
       <h2>Data Lahan <span>Jagung</span></h2>
@@ -54,117 +23,12 @@
 
       <!-- card view -->
       <div class="grid" id="cardView">
-        <a href="detail.html">
-          <div class="card">
-            <img src="img/gallery-lahan-jagung/1.jpeg" alt="Semangga" />
-            <div class="card-content">
-              <p class="nama-petani">Lahan Pak Maulana</p>
-              <p>Nama Petani : Maulana Fauzi</p>
-              <p>Kelompok Tani : KT. Buaya</p>
-              <p>Distrik : Semangga</p>
-            </div>
-          </div>
-        </a>
-
-        <div class="card">
-          <img src="img/gallery-lahan-jagung/2.png" alt="Semangga" />
-          <div class="card-content">
-            <p class="nama-petani">Lahan Pak Maulana</p>
-            <p>Nama Petani : Maulana Fauzi</p>
-            <p>Kelompok Tani : KT. Buaya</p>
-            <p>Distrik : Semangga</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="img/gallery-lahan-jagung/3.jpg" alt="Semangga" />
-          <div class="card-content">
-            <p class="nama-petani">Lahan Pak Maulana</p>
-            <p>Nama Petani : Maulana Fauzi</p>
-            <p>Kelompok Tani : KT. Buaya</p>
-            <p>Distrik : Semangga</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="img/gallery-lahan-jagung/4.jpg" alt="Semangga" />
-          <div class="card-content">
-            <p class="nama-petani">Lahan Pak Maulana</p>
-            <p>Nama Petani : Maulana Fauzi</p>
-            <p>Kelompok Tani : KT. Buaya</p>
-            <p>Distrik : Semangga</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="img/gallery-lahan-jagung/5.jpg" alt="Semangga" />
-          <div class="card-content">
-            <p class="nama-petani">Lahan Pak Maulana</p>
-            <p>Nama Petani : Maulana Fauzi</p>
-            <p>Kelompok Tani : KT. Buaya</p>
-            <p>Distrik : Semangga</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="img/gallery-lahan-jagung/6.jpg" alt="Semangga" />
-          <div class="card-content">
-            <p class="nama-petani">Lahan Pak Maulana</p>
-            <p>Nama Petani : Maulana Fauzi</p>
-            <p>Kelompok Tani : KT. Buaya</p>
-            <p>Distrik : Semangga</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="img/gallery-lahan-jagung/7.jpg" alt="Semangga" />
-          <div class="card-content">
-            <p class="nama-petani">Lahan Pak Maulana</p>
-            <p>Nama Petani : Maulana Fauzi</p>
-            <p>Kelompok Tani : KT. Buaya</p>
-            <p>Distrik : Semangga</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="img/gallery-lahan-jagung/8.jpeg" alt="Semangga" />
-          <div class="card-content">
-            <p class="nama-petani">Lahan Pak Maulana</p>
-            <p>Nama Petani : Maulana Fauzi</p>
-            <p>Kelompok Tani : KT. Buaya</p>
-            <p>Distrik : Semangga</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="img/gallery-lahan-jagung/2.png" alt="Semangga" />
-          <div class="card-content">
-            <p class="nama-petani">Lahan Pak Maulana</p>
-            <p>Nama Petani : Maulana Fauzi</p>
-            <p>Kelompok Tani : KT. Buaya</p>
-            <p>Distrik : Semangga</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="img/gallery-lahan-jagung/4.jpg" alt="Semangga" />
-          <div class="card-content">
-            <p class="nama-petani">Lahan Pak Maulana</p>
-            <p>Nama Petani : Maulana Fauzi</p>
-            <p>Kelompok Tani : KT. Buaya</p>
-            <p>Distrik : Semangga</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="img/gallery-lahan-jagung/3.jpg" alt="Semangga" />
-          <div class="card-content">
-            <p class="nama-petani">Lahan Pak Maulana</p>
-            <p>Nama Petani : Maulana Fauzi</p>
-            <p>Kelompok Tani : KT. Buaya</p>
-            <p>Distrik : Semangga</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="img/gallery-lahan-jagung/7.jpg" alt="Semangga" />
-          <div class="card-content">
-            <p class="nama-petani">Lahan Pak Maulana</p>
-            <p>Nama Petani : Maulana Fauzi</p>
-            <p>Kelompok Tani : KT. Buaya</p>
-            <p>Distrik : Semangga</p>
-          </div>
-        </div>
+        @foreach ( $semua as $data )
+            @php
+              $thumbnail = $data->galeri->where('thumbnail', true)->first();
+            @endphp
+            <x-data-card :data="$data" :thumbnail="$thumbnail"/>
+        @endforeach
       </div>
       <!-- table view start -->
       <div class="hidden" id="tableView">
@@ -285,31 +149,5 @@
     </section>
     <!-- photo grid end -->
 
-    <!-- footer start -->
-    <footer>
-      <div class="socials">
-        <a href="#"><i data-feather="instagram"></i></a>
-        <a href="#"><i data-feather="twitter"></i></a>
-        <a href="#"><i data-feather="facebook"></i></a>
-      </div>
-
-      <div class="links">
-        <a href="#home">Home</a>
-        <a href="#about">Tentang</a>
-        <a href="#home">Menu</a>
-        <a href="#home">Contact</a>
-      </div>
-      <div class="credit">
-        <p>Created by <a href="#">Novgeny R. Ermiawan</a> | &copy; 2025</p>
-      </div>
-    </footer>
-    <!-- footer end -->
-    <!-- javascript -->
-    <!-- my javascript -->
-    <script src="js/script.js"></script>
-    <!-- feather icons -->
-    <script>
-      feather.replace();
-    </script>
-  </body>
-</html>
+   <x-footer/>
+@endsection

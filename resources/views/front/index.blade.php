@@ -1,38 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <!-- my icons (feather icons) -->
-    <script src="https://unpkg.com/feather-icons"></script>
-    <!-- my font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- my style -->
-    <link rel="stylesheet" href="{{ asset('css/filament/style.css') }}"/>
-    <!-- my script -->
-  </head>
-  <body>
-    <!-- navbar start -->
-    <nav class="navbar">
-      <a href="#" class="navbar-logo">Peta<span>Jagung.</span></a>
-      <div class="navbar-nav">
-        <a href="index.html">Home</a>
-        <a href="index.html#about">Tentang</a>
-        <a href="data.html">Data</a>
-        <a href="peta.html">Peta</a>
-      </div>
-      <div class="navbar-extra">
-        <a href="#" class="login">Masuk</a>
-        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
-      </div>
-    </nav>
-    <!-- navbar end -->
+@extends('front.layouts.app')
+@section('title', 'Home')
+@section('content')
+    <x-nav/>
     <!-- hero section start -->
     <section class="hero" id="home">
       <main class="content">
@@ -54,7 +23,7 @@
 
       <div class="row">
         <div class="about-img">
-          <img src="img/tentang-kami.jpg" alt="Tentang Kami" />
+          <img src="{{asset('img/tentang-kami.jpg') }}" alt="Tentang Kami" />
         </div>
         <div class="content">
           <h3>Dinas Tanaman & Holtikultura</h3>
@@ -71,44 +40,6 @@
       </div>
     </section>
     <!-- about section end -->
-
-    <!-- menu section start -->
-    <!-- <section id="menu" class="menu">
-      <h2><span>Menu</span> Kami</h2>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe
-        repudiandae libero laudantium. Voluptatem, voluptas.
-      </p>
-
-      <div class="row">
-        <div class="menu-card">
-          <img src="img/menu/1.jpg" alt="Jagung Campur" class="menu-card-img" />
-          <h3 class="menu-card-title">- Jagung Campur</h3>
-          <p class="">IDR 15k</p>
-        </div>
-        <div class="menu-card">
-          <img src="img/menu/1.jpg" alt="Jagung Campur" class="menu-card-img" />
-          <h3 class="menu-card-title">- Jagung Campur</h3>
-          <p class="">IDR 15k</p>
-        </div>
-        <div class="menu-card">
-          <img src="img/menu/1.jpg" alt="Jagung Campur" class="menu-card-img" />
-          <h3 class="menu-card-title">- Jagung Campur</h3>
-          <p class="">IDR 15k</p>
-        </div>
-        <div class="menu-card">
-          <img src="img/menu/1.jpg" alt="Jagung Campur" class="menu-card-img" />
-          <h3 class="menu-card-title">- Jagung Campur</h3>
-          <p class="">IDR 15k</p>
-        </div>
-        <div class="menu-card">
-          <img src="img/menu/1.jpg" alt="Jagung Campur" class="menu-card-img" />
-          <h3 class="menu-card-title">- Jagung Campur</h3>
-          <p class="">IDR 15k</p>
-        </div>
-      </div>
-    </section> -->
-    <!-- menu section end -->
     <!-- visi mis section start -->
     <section class="visi-misi">
       <h2><span>Visi</span> & Misi</h2>
@@ -125,7 +56,7 @@
           <h3>Misi</h3>
           <div class="misi">
             <div class="misi-img">
-              <img src="img/profil-kepala.jpg" alt="Kepala Dinas" />
+              <img src="{{asset('img/profil-kepala.jpg') }}" alt="Kepala Dinas" />
             </div>
             <div class="content">
               <ol>
@@ -195,32 +126,5 @@
       </div>
     </section>
     <!-- contact section end -->
-
-    <!-- footer start -->
-    <footer>
-      <div class="socials">
-        <a href="#"><i data-feather="instagram"></i></a>
-        <a href="#"><i data-feather="twitter"></i></a>
-        <a href="#"><i data-feather="facebook"></i></a>
-      </div>
-
-      <div class="links">
-        <a href="#home">Home</a>
-        <a href="#about">Tentang</a>
-        <a href="#home">Menu</a>
-        <a href="#home">Contact</a>
-      </div>
-      <div class="credit">
-        <p>Created by <a href="#">Novgeny R. Ermiawan</a> | &copy; 2025</p>
-      </div>
-    </footer>
-    <!-- footer end -->
-    <!-- javascript -->
-    <!-- my javascript -->
-    <script src="js/script.js"></script>
-    <!-- feather icons -->
-    <script>
-      feather.replace();
-    </script>
-  </body>
-</html>
+    <x-footer/>
+@endsection
