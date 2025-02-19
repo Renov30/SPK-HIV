@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
 Route::get('/data', [FrontController::class, 'data'])->name('front.data');
-Route::get('/data/detail-lahan/{front:slug}', [FrontController::class, 'detail'])->name('front.detail');
+Route::get('/data/detail-lahan/{lahan:slug}', [FrontController::class, 'detail'])->name('front.detail');
 Route::get('/peta', [FrontController::class, 'peta'])->name('front.peta');
 
 // Route::get('/dashboard', function () {
