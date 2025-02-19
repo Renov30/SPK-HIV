@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Galeri;
 use App\Models\Lahan;
 use Illuminate\Http\Request;
 
@@ -20,8 +21,8 @@ class FrontController extends Controller
 
     public function detail(Lahan $lahan)
     {
-        $lahan->load(['distrik']);
-        $semua = Lahan::all();
+        $lahan->load(['distrik', 'galeri']);
+        $semua = Lahan::where('id', '!=', $lahan->id)->get();
         return view('front.detail', compact('lahan', 'semua'));
     }
 
