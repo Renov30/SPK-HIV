@@ -28,6 +28,7 @@ class FrontController extends Controller
 
     public function peta()
     {
-        return view('front.peta');
+        $lahans = Lahan::select('id', 'name', 'slug', 'alamat', 'longitude', 'latitude')->get();
+        return view('front.peta', compact('lahans'));
     }
 }
