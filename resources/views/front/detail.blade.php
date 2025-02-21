@@ -104,6 +104,16 @@
                             <td>:</td>
                             <td>{{$lahan->no_hp}}</td>
                         </tr>
+                        <tr>
+                            <td>Latitude</td>
+                            <td>:</td>
+                            <td>{{$lahan->latitude}}</td>
+                        </tr>
+                        <tr>
+                            <td>Longitude</td>
+                            <td>:</td>
+                            <td>{{$lahan->longitude}}</td>
+                        </tr>
                     </table>
                 </div>
             </div>
