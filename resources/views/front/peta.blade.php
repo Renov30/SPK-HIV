@@ -13,7 +13,7 @@
                 <div id="map"></div>
                 <script>
                     function initMap() {
-                        var lokasi = { lat: -8.4975434, lng: 140.3882068 }; // Contoh: Jakarta
+                        var lokasi = { lat: -8.4975434, lng: 140.3882068 }; 
                         var map = new google.maps.Map(
                             document.getElementById("map"),
                             {
@@ -38,7 +38,7 @@
         function initMap() {
             var mapOptions = {
                 zoom: 12,
-                center: { lat: -8.4975434, lng: 140.3882068  }, // Default: Jakarta
+                center: { lat: -8.4975434, lng: 140.3882068  }, 
             };
 
             var map = new google.maps.Map(document.getElementById("map"), mapOptions);
@@ -65,8 +65,8 @@
                     map: map,
                     title: lahan.name,
                     icon: {
-                        url: "{{asset('img/corn-cob.png')}}", // Ganti dengan path gambar Anda
-                        scaledSize: new google.maps.Size(30, 30), // Ubah ukuran sesuai kebutuhan
+                        url: "{{asset('img/corn-cob.png')}}", 
+                        scaledSize: new google.maps.Size(30, 30), 
                     }
                 });
 

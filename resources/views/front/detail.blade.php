@@ -9,21 +9,62 @@
             <div class="row">
                 <div id="map"></div>
                 <script>
+                    var activeInfoWindow = null; 
+
                     function initMap() {
-                        var lokasi = { lat: -6.2, lng: 106.816666 }; // Contoh: Jakarta
-                        var map = new google.maps.Map(
-                            document.getElementById("map"),
-                            {
-                                zoom: 10,
-                                center: lokasi,
-                            }
-                        );
+                        var lahan = {
+                            name: "{{ $lahan->name }}",
+                            alamat: "{{ $lahan->alamat }}",
+                            slug: "{{ $lahan->slug }}",
+                            latitude: {{ $lahan->latitude }},
+                            longitude: {{ $lahan->longitude }}
+                        };
+
+                        var lokasi = { lat: lahan.latitude, lng: lahan.longitude };
+
+                        var map = new google.maps.Map(document.getElementById("map"), {
+                            zoom: 15,
+                            center: lokasi,
+                        });
 
                         var marker = new google.maps.Marker({
                             position: lokasi,
                             map: map,
+                            title: lahan.name,
+                            icon: {
+                                url: "{{ asset('img/corn-cob.png') }}", 
+                                scaledSize: new google.maps.Size(30, 30),
+                            } 
+                        });
+
+                        
+                        var contentString =
+                            '<div>' +
+                                '<h5>' + lahan.name + '</h5>' +
+                                '<p>' + lahan.alamat + '</p>' +
+                                '<a href="https://www.google.com/maps?q=' + lahan.latitude + ',' + lahan.longitude + '" target="_blank">Lihat di Google Maps</a>' +
+                            '</div>';
+
+                        var infowindow = new google.maps.InfoWindow({
+                            content: contentString
+                        });
+
+                        marker.addListener('click', function() {
+                            if (activeInfoWindow) {
+                                activeInfoWindow.close();
+                            }
+                            infowindow.open(map, marker);
+                            activeInfoWindow = infowindow;
+                        });
+
+                        google.maps.event.addListener(map, 'click', function() {
+                            if (activeInfoWindow) {
+                                activeInfoWindow.close();
+                                activeInfoWindow = null;
+                            }
                         });
                     }
+
                 </script>
 
                 <div class="teks">
