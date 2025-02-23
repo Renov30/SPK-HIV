@@ -52,8 +52,12 @@
         </table>
       </div>
       <!-- table view end -->
+      {{-- pagination start --}}
+      <div class=" mt-5 w-full text-right">
+        {{ $semua->links() }}
+    </div>
+      {{-- pagination end --}}
     </section>
     <!-- photo grid end -->
-
    <x-footer/>
 @endsection

@@ -15,7 +15,8 @@ class FrontController extends Controller
 
     public function data()
     {
-        $semua = Lahan::all();
+        $semua = Lahan::paginate(8);
+        // $semua = Lahan::all();
         return view('front.data', compact('semua'));
     }
 
