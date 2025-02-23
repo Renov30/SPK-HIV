@@ -20,13 +20,13 @@ class StatsOverview extends BaseWidget
             //
             Stat::make('Jumlah distrik', $distrik . ' Distrik')
                 ->description('32k increase')
-                ->Icon('heroicon-m-arrow-trending-up'),
+                ->Icon('heroicon-o-map'),
             Stat::make('Jumlah lahan', $lahan . ' Lahan')
                 ->description('3% increase')
-                ->Icon('heroicon-m-arrow-trending-up'),
+                ->Icon('heroicon-o-map-pin'),
             Stat::make('Jumlah foto lahan', $galeri . ' Foto')
                 ->description('7% decrease')
-                ->Icon('heroicon-m-arrow-trending-down'),
+                ->Icon('heroicon-o-photo'),
         ];
     }
     protected static ?int $sort = 2;
