@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@yield('title')</title>
+    
     <!-- my icons (feather icons) -->
     <script src="https://unpkg.com/feather-icons"></script>
     <!-- my font -->
@@ -16,6 +17,7 @@
     <!-- my style -->
     <link rel="stylesheet" href="{{ asset('css/filament/style.css') }}"/>
     @stack('after-styles')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- my script -->
   </head>
   <body>
