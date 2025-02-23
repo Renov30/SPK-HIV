@@ -5,20 +5,21 @@ namespace App\Filament\Widgets;
 use App\Models\Lahan;
 use Filament\Widgets\ChartWidget;
 
-class LahanDistrikChart extends ChartWidget
+class JumlahProduksiChart extends ChartWidget
 {
-    protected static ?int $sort = 1;
+    protected static ?int $sort = 2;
     public function getColumns(): int
     {
-        return 1;
+        return 2;
     }
 
     protected static bool $isLazy = false;
-    protected static ?string $heading = 'Jumlah Lahan Per Distrik';
+    protected static ?string $heading = 'Total Produksi Per Distrik (ton)';
 
     protected function getData(): array
     {
-        $data = Lahan::selectRaw('distrik_id, COUNT(*) as total')
+        $data = Lahan::select('distrik_id')
+            ->selectRaw('SUM(hasil_produksi) as total_produksi')
             ->groupBy('distrik_id')
             ->with('distrik')
             ->get();
@@ -26,7 +27,7 @@ class LahanDistrikChart extends ChartWidget
             'labels' => $data->pluck('distrik.name')->toArray(),
             'datasets' => [
                 [
-                    'data' => $data->pluck('total')->toArray(),
+                    'data' => $data->pluck('total_produksi')->toArray(),
                     'backgroundColor' => ['#ff6384', '#36a2eb', '#ffcd56'],
                 ],
             ],
@@ -36,6 +37,6 @@ class LahanDistrikChart extends ChartWidget
 
     protected function getType(): string
     {
-        return 'doughnut';
+        return 'pie';
     }
 }
