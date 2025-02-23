@@ -77,7 +77,7 @@
                         <tr>
                             <td>Nama Petani</td>
                             <td>:</td>
-                            <td>{{$lahan->name}}</td>
+                            <td>{{$lahan->nama_petani}}</td>
                         </tr>
                         <tr>
                             <td>Hasil Produksi</td>
