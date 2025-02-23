@@ -11,23 +11,28 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class StatsOverview extends BaseWidget
 {
+    protected static ?int $sort = 0;
+    public function getColumn(): int
+    {
+        return 2;
+    }
+    protected static bool $isLazy = false;
     protected function getStats(): array
     {
         $distrik = Distrik::count();
         $lahan = Lahan::count();
-        $galeri = Galeri::count();
+        $jumlahLuas = Lahan::sum('luas_lahan');
         return [
             //
             Stat::make('Jumlah distrik', $distrik . ' Distrik')
-                ->description('32k increase')
+                ->description('Data distrik yang didapatkan')
                 ->Icon('heroicon-o-map'),
             Stat::make('Jumlah lahan', $lahan . ' Lahan')
-                ->description('3% increase')
+                ->description('Data lahan berdasarkan distrik')
                 ->Icon('heroicon-o-map-pin'),
-            Stat::make('Jumlah foto lahan', $galeri . ' Foto')
-                ->description('7% decrease')
-                ->Icon('heroicon-o-photo'),
+            Stat::make('Total Luas Lahan', $jumlahLuas . ' hektar')
+                ->description('Total luas seluruh lahan di Merauke')
+                ->Icon('heroicon-o-information-circle'),
         ];
     }
-    protected static ?int $sort = 2;
 }
