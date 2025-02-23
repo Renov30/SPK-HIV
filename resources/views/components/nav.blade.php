@@ -1,6 +1,6 @@
     <!-- navbar start -->
     <nav class="navbar" id="nav"> 
-        <a href="#" class="navbar-logo">Peta<span>Jagung.</span></a>
+        <a href="{{route('front.index')}}" class="navbar-logo">Peta<span>Jagung.</span></a>
         <div class="navbar-nav">
           <a href="{{route('front.index')}}">Home</a>
           <a href="{{route('front.index')}}#about">Tentang</a>
