@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
+            $table->string('nama_petani');
             $table->string('hasil_produksi');
             $table->string('luas_lahan');
             $table->foreignId('distrik_id')->constrained()->cascadeOnDelete();

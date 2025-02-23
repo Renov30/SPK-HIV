@@ -34,6 +34,10 @@ class LahanResource extends Resource
             ->schema([
                 //
                 TextInput::make('name')
+                    ->label('Nama Lahan')
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('nama_petani')
                     ->label('Nama Petani')
                     ->required()
                     ->maxLength(255),
@@ -74,7 +78,11 @@ class LahanResource extends Resource
             ->columns([
                 //
                 TextColumn::make('name')
-                    ->label('Nama')
+                    ->label('Nama Lahan')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('nama_petani')
+                    ->label('Nama Petani')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('hasil_produksi')

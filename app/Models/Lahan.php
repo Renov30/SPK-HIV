@@ -14,6 +14,7 @@ class Lahan extends Model
     use SoftDeletes;
     protected $fillable = [
         'name',
+        'nama_petani',
         'slug',
         'hasil_produksi',
         'luas_lahan',
