@@ -26,7 +26,7 @@ class LahanResource extends Resource
     protected static ?string $modelLabel = 'Lahan'; // Label untuk satu item
     protected static ?string $pluralModelLabel = 'Lahan'; // Label untuk daftar item
 
-    protected static ?string $navigationIcon = 'heroicon-s-map-pin';
+    protected static ?string $navigationIcon = 'heroicon-o-map-pin';
 
     public static function form(Form $form): Form
     {

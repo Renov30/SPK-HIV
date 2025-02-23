@@ -27,7 +27,7 @@ class GaleriResource extends Resource
     protected static ?string $modelLabel = 'Galeri'; // Label untuk satu item
     protected static ?string $pluralModelLabel = 'Galeri'; // Label untuk daftar item
 
-    protected static ?string $navigationIcon = 'heroicon-s-photo';
+    protected static ?string $navigationIcon = 'heroicon-o-photo';
 
     public static function form(Form $form): Form
     {

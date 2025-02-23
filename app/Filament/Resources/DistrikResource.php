@@ -22,7 +22,7 @@ class DistrikResource extends Resource
     protected static ?string $modelLabel = 'Distrik'; // Label untuk satu item
     protected static ?string $pluralModelLabel = 'Distrik'; // Label untuk daftar item
 
-    protected static ?string $navigationIcon = 'heroicon-s-map';
+    protected static ?string $navigationIcon = 'heroicon-o-map';
 
     public static function form(Form $form): Form
     {
