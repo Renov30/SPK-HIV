@@ -10,8 +10,7 @@
           <span>Jagung</span>
         </h1>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores,
-          reprehenderit!
+          Sistem informasi Geografis lahan jagung, disediakan oleh Dinas Tanaman Pangan, Hortikultura dan Perkebunan Kabupaten Merauke
         </p>
         <a href="{{route('front.data')}}" class="cta">Lihat Data</a>
       </main>
@@ -19,112 +18,151 @@
     <!-- hero section end -->
     <!-- about section start -->
     <section class="about" id="about">
-      <h2><span>Tentang</span> Kami</h2>
+      <h2><span>Tentang</span> Aplikasi</h2>
 
       <div class="row">
+        
+        <div class="content">
+          <h3>Peta <span>Jagung</span></h3>
+          <p>
+            Aplikasi Peta Jagung adalah aplikasi berbasis website yang menyediakan informasi lahan jagung di sekitar wilayah kabupaten Merauke.
+          </p>
+          <p>
+            Aplikasi ini bertujuan untuk memberikan kemudahan kepada Dinas Tanaman Pangan, Hortikultura dan Perkebunan Kabupaten Merauke dalam memberikan informasi mengenai lahan jagung yang ada di Merauke kepada investor dan masyarakat melalui Geographic Information System.
+          </p>
+        </div>
         <div class="about-img">
           <img src="{{asset('img/tentang-kami.jpg') }}" alt="Tentang Kami" />
-        </div>
-        <div class="content">
-          <h3>Dinas Tanaman & Holtikultura</h3>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa
-            molestias ipsam temporibus nesciunt nisi exercitationem.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus,
-            atque! Atque quisquam culpa laboriosam numquam alias minus pariatur,
-            ad temporibus.
-          </p>
         </div>
       </div>
     </section>
     <!-- about section end -->
     <!-- visi mis section start -->
     <section class="visi-misi">
-      <h2><span>Visi</span> & Misi</h2>
+      <h2><span>Tentang</span> Kami</h2>
+      {{-- <p class="dinas">Dinas Tanaman Pangan, Hortikultura dan Perkebunan Kabupaten Merauke. </p> --}}
+      <h3 class="visi">Visi</h3>
+      <p>
+        " Terwujudnya kabupaten merauke sebagai kawasan pertumbuhan ekonomi
+        perbatasan yang strategis dengan mengoptimalkan sumber daya manusia
+        dan sumber daya alam lokal melalui pertanian sebagai sektor utama "
+      </p>
       <div class="row">
-        <div class="visi">
-          <h3>Visi</h3>
-          <p>
-            Terwujudnya kabupaten merauke sebagai kawasan pertumbuhan ekonomi
-            perbatasan yang strategis dengan mengoptimalkan sumber daya manusia
-            dan sumber daya alam lokal melalui pertanian sebagai sektor utama.
-          </p>
+        <div class="visi-misi-img">
+          <img src="{{asset('img/profil-kepala.jpg') }}" alt="Tentang Kami" />
         </div>
-        <div class="misi-isi">
+
+        <div class="content">
           <h3>Misi</h3>
-          <div class="misi">
-            <div class="misi-img">
-              <img src="{{asset('img/profil-kepala.jpg') }}" alt="Kepala Dinas" />
-            </div>
-            <div class="content">
-              <ol>
+              <ul>
                 <li>
-                  Peningkatan stabilitas wilayah dan peran sebagai daerah
-                  perbatasan
+                  <span>1</span>
+                  Peningkatan stabilitas wilayah dan peran sebagai daerah perbatasan
                 </li>
                 <li>
-                  Peningkatan kapasitas kelembagaan pemerintahan dan wilayah
-                  pengembangan pada tingkat kampung, distrik dan kabupaten.
-                </li>
-                <li>Pembentukan kota madya dan provinsi papua selatan</li>
-                <li>
-                  Pembangunan pertanian yang berorientasi pada perwujudan
-                  lumbung pangan untuk ketahanan pangan di tingkat nasional
-                  maupun internasional
-                </li>
-                <li>Penguatan ekonomi daerah dan peluang investasi</li>
-                <li>
-                  Peningkatan kualitas sumber daya manusia sesuai pengembangan
-                  potensi daerah
+                  <span>2</span>
+                  Peningkatan kapasitas kelembagaan pemerintahan dan wilayah pengembangan pada tingkat kampung, distrik dan kabupaten.
                 </li>
                 <li>
+                  <span>3</span>
+                  Pembentukan kota madya dan provinsi papua selatan</li>
+                <li>
+                  <span>4</span>
+                  Pembangunan pertanian yang berorientasi pada perwujudan lumbung pangan untuk ketahanan pangan di tingkat nasional maupun internasional
+                </li>
+                <li>
+                  <span>5</span>
+                  Penguatan ekonomi daerah dan peluang investasi</li>
+                <li>
+                  <span>6</span>
+                  Peningkatan kualitas sumber daya manusia sesuai pengembangan potensi daerah
+                </li>
+                <li>
+                  <span>7</span>
                   Peningkatan kualitas pelayanan kesehatan sampai ke tingkat
                   kampung
                 </li>
-                <li>Penguatan identitas budaya dan kearifan lokal.</li>
-              </ol>
+                <li>
+                  <span>8</span>
+                  Penguatan identitas budaya dan kearifan lokal.</li>
+              </ul>
             </div>
           </div>
-        </div>
-      </div>
     </section>
     <!-- visi mis section end -->
     <!-- contact section start -->
-    <section id="contact" class="contact">
-      <h2><span>Kontak</span> Kami</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit,
-        culpa.
-      </p>
+        <section id="contact" class="contact">
+          <h2><span>Informasi</span> Terkini</h2>
+          <p>
+            Dengan adanya Peta Jagung, data lahan jagung yang dikumpulkan oleh gapoktan dapat ditampilkan untuk diketahui semua orang.
+          </p>
+    
+          <div class="row">
+            <!-- From Uiverse.io by paesjr --> 
+            <div class="e-card playing">
+              <div class="image"></div>
 
-      <div class="row">
-        <iframe
-          class="map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17241.878200672378!2d140.39961238389768!3d-8.511549945196895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x69b5158da996ad45%3A0x9a12acf62d5af96d!2sDinas%20Tanaman%20Pangan%20Kabupaten%20Merauke!5e0!3m2!1sen!2sid!4v1738501342731!5m2!1sen!2sid"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+              <div class="wave"></div>
+              <div class="wave"></div>
+              <div class="wave"></div>
 
-        <form action="">
-          <div class="input-group">
-            <i data-feather="user"></i>
-            <input type="text" placeholder="nama" />
+              <div class="infotop">
+                <i data-feather="map"></i>
+                <p>Jumlah Distrik</p>
+                <br>
+                <h1>2</h1>
+              </div>
+            </div>
+
+            <!-- From Uiverse.io by paesjr --> 
+            <div class="e-card playing">
+              <div class="image"></div>
+
+              <div class="wave"></div>
+              <div class="wave"></div>
+              <div class="wave"></div>
+
+              <div class="infotop">
+                <i data-feather="map-pin"></i>
+                <p>Jumlah Lahan</p>
+                <br>
+                <h1>10</h1>
+              </div>
+            </div>
+            <!-- From Uiverse.io by paesjr --> 
+            <div class="e-card playing">
+              <div class="image"></div>
+
+              <div class="wave"></div>
+              <div class="wave"></div>
+              <div class="wave"></div>
+
+              <div class="infotop">
+                <i data-feather="bar-chart-2"></i>
+                <p>Luas Lahan</p>
+                <br>
+                <h1>200.00h</h1>
+              </div>
+            </div>
+            <!-- From Uiverse.io by paesjr --> 
+            <div class="e-card playing">
+              <div class="image"></div>
+
+              <div class="wave"></div>
+              <div class="wave"></div>
+              <div class="wave"></div>
+
+              <div class="infotop">
+                <i data-feather="bar-chart"></i>
+                <p>Jumlah Produksi</p>
+                <br>
+                <h1>50.00ton</h1>
+              </div> 
+            </div>
           </div>
-          <div class="input-group">
-            <i data-feather="mail"></i>
-            <input type="text" placeholder="email" />
-          </div>
-          <div class="input-group">
-            <i data-feather="phone"></i>
-            <input type="text" placeholder="no.hp" />
-          </div>
-          <button type="submit" class="kirim">Kirim Pesan</button>
-        </form>
-      </div>
-    </section>
-    <!-- contact section end -->
+        </section>
+        <!-- contact section end -->
+        {{-- build using section start --}}
+        {{-- build using section end --}}
     <x-footer/>
 @endsection
