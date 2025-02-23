@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
+    protected static ?string $navigationGroup = 'Settings';
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
@@ -49,6 +50,10 @@ class UserResource extends Resource
                 TextInput::make('no_hp')
                     ->required()
                     ->label('No. Hp')
+                    ->maxLength(255),
+                TextInput::make('nama_lengkap')
+                    ->label('Nama Lengkap')
+                    ->required()
                     ->maxLength(255),
                 TextInput::make('tempat_lahir')
                     ->required()
@@ -84,6 +89,10 @@ class UserResource extends Resource
                     ->searchable(),
                 TextColumn::make('no_hp')
                     ->label('No. Hp')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('nama_lengkap')
+                    ->label('Nama Lengkap')
                     ->sortable()
                     ->searchable(),
                 TextColumn::make('tempat_lahir')
@@ -136,5 +145,9 @@ class UserResource extends Resource
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
+    }
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
     }
 }

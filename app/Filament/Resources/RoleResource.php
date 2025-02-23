@@ -18,6 +18,7 @@ use Spatie\Permission\Models\Role;
 class RoleResource extends Resource
 {
     protected static ?string $model = Role::class;
+    protected static ?string $navigationGroup = 'Settings';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
