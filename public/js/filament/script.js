@@ -41,11 +41,10 @@ toggleViewBtn.addEventListener("click", () => {
     tableView.classList.toggle("hidden");
     if (cardView.classList.contains("hidden")) {
         toggleViewBtn.id = "toggleViewBtnTable";
-        toggleViewBtn.innerHTML =
-            '<i data-feather="image"></i>&nbsp;Table View';
+        toggleViewBtn.innerHTML = '<i data-feather="table"></i>';
     } else {
         toggleViewBtn.id = "toggleViewBtn";
-        toggleViewBtn.innerHTML = '<i data-feather="table"></i>&nbsp;Card View';
+        toggleViewBtn.innerHTML = '<i data-feather="image"></i>';
     }
     feather.replace();
 });
