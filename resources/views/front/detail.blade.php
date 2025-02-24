@@ -39,10 +39,10 @@
 
                         
                         var contentString =
-                            '<div>' +
-                                '<h5>' + lahan.name + '</h5>' +
-                                '<p>' + lahan.alamat + '</p>' +
-                                '<a href="https://www.google.com/maps?q=' + lahan.latitude + ',' + lahan.longitude + '" target="_blank">Lihat di Google Maps</a>' +
+                            '<div class="card-google-map">' +
+                                '<h5 class="card-title-google-map">' + lahan.name + '</h5>' +
+                                '<p class="card-text-google-map">' + lahan.alamat + '</p>' +
+                                '<a href="https://www.google.com/maps?q=' + lahan.latitude + ',' + lahan.longitude + '" target="_blank" class="card-button-google-map">Lihat di Google Maps</a>' +
                             '</div>';
 
                         var infowindow = new google.maps.InfoWindow({
@@ -146,12 +146,18 @@
             <h3>Lahan Lainnya</h3>
             <!-- card view -->
             <div class="grid" id="cardView">
-            @forelse ($semua as $lahan)
-                <x-data-card :data="$lahan"/>
-            @empty
-                <p>Belum ada data lahan</p>
-            @endforelse
+                @forelse ($semua->take(4) as $lahan) {{-- Ambil hanya 4 data --}}
+                    <x-data-card :data="$lahan"/>
+                @empty
+                    <p>Belum ada data lahan</p>
+                @endforelse
             </div>
+        
+            @if($semua->count() > 4) {{-- Tampilkan tombol jika ada lebih dari 4 data --}}
+                <div class="text-right mt-3">
+                    <a href="{{ route('front.data') }}" class="btn btn-primary text-sm hover:underline">Lihat Lebih Banyak</a>
+                </div>
+            @endif
         </section>
         <!-- other content end -->
        <x-footer/>

@@ -6,8 +6,7 @@
         <section class="content-peta">
             <h2>Peta <span>Lahan</span></h2>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ratione, repellat!
+                Tampilan penyebaran lahan jagung di sekitar Kabupaten Merauke yang telah terdata.
             </p>
             <div class="row">
                 <div id="map"></div>
@@ -50,10 +49,10 @@
                 var position = new google.maps.LatLng(lahan.latitude, lahan.longitude);
 
                 var contentString =
-                    '<div>' +
-                        '<h5>' + lahan.name + '</h5>' +
-                        '<p>' + lahan.alamat + '</p>' +
-                        '<a href="/data/detail-lahan/' + lahan.slug + '">Lihat Detail</a>' +
+                    '<div class="card-google-map">' +
+                        '<h5 class="card-title-google-map">' + lahan.name + '</h5>' +
+                        '<p class="card-text-google-map">' + lahan.alamat + '</p>' +
+                        '<a href="/data/detail-lahan/' + lahan.slug + '" class="card-button-google-map">Lihat Detail</a>' +
                     '</div>';
 
                 var infowindow = new google.maps.InfoWindow({
