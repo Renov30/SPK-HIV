@@ -13,10 +13,22 @@ class FrontController extends Controller
         return view('front.index');
     }
 
-    public function data()
+    public function data(Request $request)
     {
-        $semua = Lahan::paginate(8);
-        // $semua = Lahan::all();
+        $query = Lahan::query();
+
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where('name', 'LIKE', "%{$search}%")
+                ->orWhere('nama_petani', 'LIKE', "%{$search}%")
+                ->orWhereHas('distrik', function ($q) use ($search) {
+                    $q->where('name', 'LIKE', "%{$search}%");
+                })
+                ->orWhere('alamat', 'LIKE', "%{$search}%");
+        }
+
+        $semua = $query->paginate(8);
+
         return view('front.data', compact('semua'));
     }
 

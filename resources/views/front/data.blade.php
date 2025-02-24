@@ -6,18 +6,18 @@
     <section class="photo-grid">
       <h2>Data Lahan <span>Jagung</span></h2>
       <p class="info">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta, ipsam?
+        Kumpulan data lahan jagung di sekitar Kabupaten Merauke yang telah terdata.
       </p>
 
       <div class="top-bar">
         <!-- search bar -->
-        <form action="#" class="search">
-          <input type="text" placeholder="Search.." name="search" />
+        <form action="{{ route('front.data') }}" method="GET" class="search">
+          <input type="text" placeholder="Search.." name="search" value="{{ request('search') }}" />
           <button type="submit"><i data-feather="search"></i></button>
-        </form>
+      </form>
         <!-- toggle button -->
         <button class="toggleBtn" id="toggleViewBtn">
-          <i data-feather="table"></i>&nbsp;Card View
+          <i data-feather="image"></i>
         </button>
       </div>
 
