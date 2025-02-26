@@ -20,8 +20,8 @@ class LatestLahan extends BaseWidget
             ->query(
                 Lahan::query()
                     ->latest()
-                    ->limit(5) // Ini sudah cukup, tanpa get()
             )
+            ->defaultPaginationPageOption(5)
             ->paginated(5)
             ->columns([
                 Tables\Columns\TextColumn::make('name')->label('Nama Pemilik'),
