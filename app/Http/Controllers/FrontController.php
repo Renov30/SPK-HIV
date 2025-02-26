@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Distrik;
 use App\Models\Galeri;
 use App\Models\Lahan;
 use Illuminate\Http\Request;
@@ -10,7 +11,11 @@ class FrontController extends Controller
 {
     public function index()
     {
-        return view('front.index');
+        $jumlahLuas = Lahan::sum('luas_lahan');
+        $jumlahProduksi = Lahan::sum('hasil_produksi');
+        $jumlahDistrik = Distrik::count();
+        $jumlahLahan = Lahan::count();
+        return view('front.index', compact('jumlahLuas', 'jumlahProduksi', 'jumlahDistrik', 'jumlahLahan'));
     }
 
     public function data(Request $request)

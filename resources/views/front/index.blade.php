@@ -110,7 +110,7 @@
                 <i data-feather="map"></i>
                 <p>Jumlah Distrik</p>
                 <br>
-                <h1>2</h1>
+                <h1>{{$jumlahDistrik}}</h1>
               </div>
             </div>
 
@@ -126,7 +126,7 @@
                 <i data-feather="map-pin"></i>
                 <p>Jumlah Lahan</p>
                 <br>
-                <h1>10</h1>
+                <h1>{{$jumlahLahan}}</h1>
               </div>
             </div>
             <!-- From Uiverse.io by paesjr --> 
@@ -141,7 +141,7 @@
                 <i data-feather="bar-chart-2"></i>
                 <p>Luas Lahan</p>
                 <br>
-                <h1>200.00h</h1>
+                <h1>{{$jumlahLuas}}h</h1>
               </div>
             </div>
             <!-- From Uiverse.io by paesjr --> 
@@ -156,7 +156,7 @@
                 <i data-feather="bar-chart"></i>
                 <p>Jumlah Produksi</p>
                 <br>
-                <h1>50.00ton</h1>
+                <h1>{{$jumlahProduksi}}ton</h1>
               </div> 
             </div>
           </div>
