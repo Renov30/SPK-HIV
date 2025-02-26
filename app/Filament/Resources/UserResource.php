@@ -22,6 +22,10 @@ class UserResource extends Resource
     protected static ?string $model = User::class;
     protected static ?string $navigationGroup = 'Settings';
 
+    protected static ?string $modelLabel = 'User'; // Label untuk satu item
+    protected static ?string $pluralModelLabel = 'Daftar User'; // Label untuk daftar item
+    protected static ?string $navigationLabel = 'Users'; // Label di sidebar
+
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
     public static function form(Form $form): Form

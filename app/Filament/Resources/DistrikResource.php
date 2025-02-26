@@ -20,7 +20,8 @@ class DistrikResource extends Resource
     protected static ?string $model = Distrik::class;
 
     protected static ?string $modelLabel = 'Distrik'; // Label untuk satu item
-    protected static ?string $pluralModelLabel = 'Distrik'; // Label untuk daftar item
+    protected static ?string $pluralModelLabel = 'Daftar Distrik'; // Label untuk daftar item
+    protected static ?string $navigationLabel = 'Distrik'; // Label di sidebar
 
     protected static ?string $navigationIcon = 'heroicon-o-map';
 
