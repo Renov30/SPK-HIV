@@ -3,6 +3,7 @@
 namespace App\Filament\Widgets;
 
 use App\Models\Lahan;
+use App\Models\Produksi;
 use Filament\Widgets\ChartWidget;
 
 class JumlahProduksiChart extends ChartWidget
@@ -18,20 +19,20 @@ class JumlahProduksiChart extends ChartWidget
 
     protected function getData(): array
     {
-        $data = Lahan::select('distrik_id')
-            ->selectRaw('SUM(hasil_produksi) as total_produksi')
-            ->groupBy('distrik_id')
-            ->with('distrik')
+        $data = Produksi::selectRaw('lahans.distrik_id, SUM(produksis.hasil_produksi) as total_produksi')
+            ->join('lahans', 'produksis.lahan_id', '=', 'lahans.id') // Join dengan tabel lahan
+            ->groupBy('lahans.distrik_id')
+            ->with('lahan.distrik') // Ambil data distrik
             ->get();
+
         return [
-            'labels' => $data->pluck('distrik.name')->toArray(),
+            'labels' => $data->map(fn($item) => $item->lahan->distrik->name)->toArray(), // Ambil nama distrik
             'datasets' => [
                 [
-                    'data' => $data->pluck('total_produksi')->toArray(),
+                    'data' => $data->pluck('total_produksi')->toArray(), // Ambil hasil produksi total
                     'backgroundColor' => ['#ff6384', '#36a2eb', '#ffcd56'],
                 ],
             ],
-            // 'labels' => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         ];
     }
 
