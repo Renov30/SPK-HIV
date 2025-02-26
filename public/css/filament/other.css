@@ -8,8 +8,11 @@
 
 .other .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
     gap: 16px;
+    align-items: stretch;
 }
 
 .other .grid .card {
@@ -17,6 +20,30 @@
     border-radius: 0.5rem;
     border: 1px solid #d3d6d8;
     padding: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Pastikan semua card memiliki tinggi yang sama */
+}
+
+.photo-grid .grid .card-content {
+    flex-grow: 1; /* Membuat konten memenuhi ruang kosong */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Menjaga keseimbangan teks */
+}
+
+.photo-grid .grid .card-content p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Batasi teks dalam 3 baris */
+    -webkit-box-orient: vertical;
+}
+.other .grid .card .card-content p {
+    font-size: 0.9rem;
+    font-weight: 200;
+    line-height: 1.6;
 }
 .other .grid .card:hover {
     border: 1px solid var(--secondary);
@@ -34,10 +61,12 @@
 .other .grid .card .card-content .nama-petani {
     font-size: 1rem;
     font-weight: 500;
+    margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
-.other .grid .card .card-content p {
-    font-size: 0.9rem;
-    font-weight: 200;
-    line-height: 1.6;
+
+@media (max-width: 758px) {
+    #cardview {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
