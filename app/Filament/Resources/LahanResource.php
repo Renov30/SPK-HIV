@@ -24,7 +24,8 @@ class LahanResource extends Resource
     protected static ?string $model = Lahan::class;
 
     protected static ?string $modelLabel = 'Lahan'; // Label untuk satu item
-    protected static ?string $pluralModelLabel = 'Lahan'; // Label untuk daftar item
+    protected static ?string $pluralModelLabel = 'Daftar Lahan'; // Label untuk daftar item
+    protected static ?string $navigationLabel = 'Lahan'; // Label di sidebar
 
     protected static ?string $navigationIcon = 'heroicon-o-map-pin';
 
@@ -41,10 +42,6 @@ class LahanResource extends Resource
                     ->label('Nama Petani')
                     ->required()
                     ->maxLength(255),
-                TextInput::make('hasil_produksi')
-                    ->required()
-                    ->maxLength(255)
-                    ->suffix('ton'),
                 TextInput::make('luas_lahan')
                     ->required()
                     ->maxLength(255)
@@ -83,9 +80,6 @@ class LahanResource extends Resource
                     ->sortable(),
                 TextColumn::make('nama_petani')
                     ->label('Nama Petani')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('hasil_produksi')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('luas_lahan')

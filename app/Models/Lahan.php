@@ -16,7 +16,6 @@ class Lahan extends Model
         'name',
         'nama_petani',
         'slug',
-        'hasil_produksi',
         'luas_lahan',
         'distrik_id',
         'alamat',
