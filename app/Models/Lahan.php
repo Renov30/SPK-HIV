@@ -40,4 +40,9 @@ class Lahan extends Model
     {
         return $this->hasMany(Galeri::class, 'lahan_id');
     }
+
+    public function produksi(): HasMany
+    {
+        return $this->hasMany(Produksi::class, 'lahan_id');
+    }
 }
