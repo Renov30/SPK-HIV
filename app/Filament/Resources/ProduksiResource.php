@@ -33,7 +33,7 @@ class ProduksiResource extends Resource
         return $form
             ->schema([
                 //
-                Repeater::make('')
+                Repeater::make('produksis')
                     ->columnSpan('full')
                     ->addActionLabel('Tambah Hasil Produksi')
                     ->schema([
@@ -42,7 +42,8 @@ class ProduksiResource extends Resource
                                 Select::make('lahan_id')
                                     ->label('Lahan')
                                     ->required()
-                                    ->relationship('lahan', 'name'),
+                                    ->relationship('lahan', 'name')
+                                    ->preload(),
                                 Select::make('tahun_produksi')
                                     ->label('Tahun')
                                     ->options(
