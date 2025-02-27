@@ -25,8 +25,8 @@ class LatestLahan extends BaseWidget
             ->paginated(5)
             ->columns([
                 Tables\Columns\TextColumn::make('name')->label('Nama Pemilik'),
-                Tables\Columns\TextColumn::make('hasil_produksi')->label('Hasil Produksi'),
                 Tables\Columns\TextColumn::make('luas_lahan')->label('Luas Lahan (ha)'),
+                Tables\Columns\TextColumn::make('distrik.name')->label('Distrik'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Dibuat Pada')
                     ->dateTime('d M Y'),
