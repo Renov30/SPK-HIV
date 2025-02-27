@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ProduksiResource\Pages;
 use App\Filament\Resources\ProduksiResource\RelationManagers;
 use App\Models\Produksi;
+use Filament\Actions\Exports\Models\Export;
 use Filament\Forms;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Repeater;
@@ -17,6 +18,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 
 class ProduksiResource extends Resource
 {
@@ -32,30 +34,22 @@ class ProduksiResource extends Resource
     {
         return $form
             ->schema([
-                //
-                Repeater::make('produksis')
-                    ->columnSpan('full')
-                    ->addActionLabel('Tambah Hasil Produksi')
-                    ->schema([
-                        Grid::make(2)
-                            ->schema([
-                                Select::make('lahan_id')
-                                    ->label('Lahan')
-                                    ->required()
-                                    ->relationship('lahan', 'name')
-                                    ->preload(),
-                                Select::make('tahun_produksi')
-                                    ->label('Tahun')
-                                    ->options(
-                                        array_combine(range(date('Y'), 2015), range(date('Y'), 2015))
-                                    )
-                                    ->required(),
-                                TextInput::make('hasil_produksi')
-                                    ->label('Jumlah Produksi')
-                                    ->suffix('ton')
-                                    ->required(),
-                            ])
-                    ]),
+                //->schema([
+                Select::make('lahan_id')
+                    ->label('Lahan')
+                    ->required()
+                    ->relationship('lahan', 'name')
+                    ->preload(),
+                Select::make('tahun_produksi')
+                    ->label('Tahun')
+                    ->options(
+                        array_combine(range(date('Y'), 2015), range(date('Y'), 2015))
+                    )
+                    ->required(),
+                TextInput::make('hasil_produksi')
+                    ->label('Jumlah Produksi')
+                    ->suffix('ton')
+                    ->required(),
             ]);
     }
 
@@ -88,6 +82,8 @@ class ProduksiResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                     Tables\Actions\ForceDeleteBulkAction::make(),
                     Tables\Actions\RestoreBulkAction::make(),
+                    ExportBulkAction::make()
+                        ->label('Ekspor Data'),
                 ]),
             ]);
     }
