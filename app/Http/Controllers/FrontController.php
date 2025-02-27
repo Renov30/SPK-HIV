@@ -12,9 +12,12 @@ class FrontController extends Controller
     public function index()
     {
         $jumlahLuas = Lahan::sum('luas_lahan');
-        $jumlahProduksi = Lahan::sum('hasil_produksi');
+        // $jumlahProduksi = Lahan::sum('hasil_produksi');
         $jumlahDistrik = Distrik::count();
         $jumlahLahan = Lahan::count();
+        $jumlahProduksi = Lahan::join('produksis', 'lahans.id', '=', 'produksis.lahan_id')
+            ->selectRaw('SUM(produksis.hasil_produksi) as total_produksi')
+            ->value('total_produksi'); // Ambil satu nilai total saja
         return view('front.index', compact('jumlahLuas', 'jumlahProduksi', 'jumlahDistrik', 'jumlahLahan'));
     }
 
