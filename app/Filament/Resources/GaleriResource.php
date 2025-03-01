@@ -24,6 +24,8 @@ class GaleriResource extends Resource
 {
     protected static ?string $model = Galeri::class;
 
+    protected static bool $isLazy = false;
+
     protected static ?string $modelLabel = 'Galeri'; // Label untuk satu item
     protected static ?string $pluralModelLabel = 'Daftar Galeri'; // Label untuk daftar item
     protected static ?string $navigationLabel = 'Galeri'; // Label di sidebar

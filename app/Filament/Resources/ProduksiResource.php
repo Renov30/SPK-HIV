@@ -24,6 +24,8 @@ class ProduksiResource extends Resource
 {
     protected static ?string $model = Produksi::class;
 
+    protected static bool $isLazy = false;
+
     protected static ?string $modelLabel = 'Produksi'; // Label untuk satu item
     protected static ?string $pluralModelLabel = 'Daftar Hasil Produksi'; // Label untuk daftar item
     protected static ?string $navigationLabel = 'Produksi'; // Label di sidebar

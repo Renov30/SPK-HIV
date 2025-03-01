@@ -20,6 +20,8 @@ class RoleResource extends Resource
     protected static ?string $model = Role::class;
     protected static ?string $navigationGroup = 'Settings';
 
+    protected static bool $isLazy = false;
+
     protected static ?string $modelLabel = 'Role'; // Label untuk satu item
     protected static ?string $pluralModelLabel = 'Daftar Role'; // Label untuk daftar item
     protected static ?string $navigationLabel = 'Roles'; // Label di sidebar

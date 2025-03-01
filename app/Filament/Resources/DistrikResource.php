@@ -19,6 +19,8 @@ class DistrikResource extends Resource
 {
     protected static ?string $model = Distrik::class;
 
+    protected static bool $isLazy = false;
+
     protected static ?string $modelLabel = 'Distrik'; // Label untuk satu item
     protected static ?string $pluralModelLabel = 'Daftar Distrik'; // Label untuk daftar item
     protected static ?string $navigationLabel = 'Distrik'; // Label di sidebar

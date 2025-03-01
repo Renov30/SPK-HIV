@@ -24,6 +24,8 @@ class LahanResource extends Resource
 {
     protected static ?string $model = Lahan::class;
 
+    protected static bool $isLazy = false;
+
     protected static ?string $modelLabel = 'Lahan'; // Label untuk satu item
     protected static ?string $pluralModelLabel = 'Daftar Lahan'; // Label untuk daftar item
     protected static ?string $navigationLabel = 'Lahan'; // Label di sidebar
