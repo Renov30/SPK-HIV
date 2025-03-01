@@ -695,6 +695,10 @@ td button:hover {
     height: 240px;
     border-radius: 16px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .wave {
