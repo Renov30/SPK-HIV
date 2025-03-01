@@ -44,6 +44,9 @@ class FrontController extends Controller
     {
         $lahan->load(['distrik', 'galeri']);
         $semua = Lahan::where('id', '!=', $lahan->id)->get();
+        $hasilProduksi = Lahan::with(['produksi' => function ($query) {
+            $query->latest();
+        }]);
         return view('front.detail', compact('lahan', 'semua'));
     }
 

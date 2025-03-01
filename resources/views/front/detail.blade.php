@@ -82,7 +82,7 @@
                         <tr>
                             <td>Hasil Produksi</td>
                             <td>:</td>
-                            <td>{{$lahan->hasil_produksi}}</td>
+                            <td>{{$lahan->produksi()->latest()->first()?->hasil_produksi ?? 'Belum ada data'}}</td>
                         </tr>
                         <tr>
                             <td>Luas Lahan</td>
