@@ -11,7 +11,7 @@
  Target Server Version : 80030 (8.0.30)
  File Encoding         : 65001
 
- Date: 01/03/2025 17:21:56
+ Date: 13/03/2025 06:38:24
 */
 
 SET NAMES utf8mb4;
@@ -33,9 +33,11 @@ CREATE TABLE `cache`  (
 -- ----------------------------
 INSERT INTO `cache` VALUES ('356a192b7913b04c54574d18c28d46e6395428ab', 'i:2;', 1740286587);
 INSERT INTO `cache` VALUES ('356a192b7913b04c54574d18c28d46e6395428ab:timer', 'i:1740286587;', 1740286587);
-INSERT INTO `cache` VALUES ('livewire-rate-limiter:a17961fa74e9275d529f489537f179c05d50c2f3', 'i:1;', 1740816245);
-INSERT INTO `cache` VALUES ('livewire-rate-limiter:a17961fa74e9275d529f489537f179c05d50c2f3:timer', 'i:1740816245;', 1740816245);
-INSERT INTO `cache` VALUES ('spatie.permission.cache', 'a:3:{s:5:\"alias\";a:0:{}s:11:\"permissions\";a:0:{}s:5:\"roles\";a:0:{}}', 1740902587);
+INSERT INTO `cache` VALUES ('da4b9237bacccdf19c0760cab7aec4a8359010b0', 'i:1;', 1740914971);
+INSERT INTO `cache` VALUES ('da4b9237bacccdf19c0760cab7aec4a8359010b0:timer', 'i:1740914971;', 1740914971);
+INSERT INTO `cache` VALUES ('livewire-rate-limiter:a17961fa74e9275d529f489537f179c05d50c2f3', 'i:1;', 1741814989);
+INSERT INTO `cache` VALUES ('livewire-rate-limiter:a17961fa74e9275d529f489537f179c05d50c2f3:timer', 'i:1741814989;', 1741814989);
+INSERT INTO `cache` VALUES ('spatie.permission.cache', 'a:3:{s:5:\"alias\";a:0:{}s:11:\"permissions\";a:0:{}s:5:\"roles\";a:0:{}}', 1741901329);
 
 -- ----------------------------
 -- Table structure for cache_locks
@@ -110,7 +112,7 @@ CREATE TABLE `galeris`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `galeris_lahan_id_foreign`(`lahan_id` ASC) USING BTREE,
   CONSTRAINT `galeris_lahan_id_foreign` FOREIGN KEY (`lahan_id`) REFERENCES `lahans` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of galeris
@@ -126,6 +128,9 @@ INSERT INTO `galeris` VALUES (8, 8, '01JMRJ9EN4WYQBT7SWCDX9KBXG.jpg', NULL, '202
 INSERT INTO `galeris` VALUES (9, 9, '01JMRJCX69SHRWR5KWC3T5XTP8.png', NULL, '2025-02-23 04:52:38', '2025-02-23 04:52:38');
 INSERT INTO `galeris` VALUES (10, 10, '01JMRJFW3RBV7QMSAWPC3P1J77.jpg', NULL, '2025-02-23 04:54:15', '2025-02-23 04:54:15');
 INSERT INTO `galeris` VALUES (11, 11, '01JMRJJRG8METY7J7MRV0VT7ET.jpeg', NULL, '2025-02-23 04:55:50', '2025-02-23 04:55:50');
+INSERT INTO `galeris` VALUES (12, 12, '01JNB89T8YXSM7AG20JS18TSBQ.jpg', '2025-03-02 11:09:26', '2025-03-02 11:01:45', '2025-03-02 11:09:26');
+INSERT INTO `galeris` VALUES (13, 7, '01JNB8MA0TNAMFHNER32NWV7XY.jpg', '2025-03-02 11:09:26', '2025-03-02 11:07:29', '2025-03-02 11:09:26');
+INSERT INTO `galeris` VALUES (14, 9, '01JNB8NH607BBGCJAQ5MBTRDJE.jpg', '2025-03-02 11:09:26', '2025-03-02 11:08:09', '2025-03-02 11:09:26');
 
 -- ----------------------------
 -- Table structure for job_batches
@@ -191,7 +196,7 @@ CREATE TABLE `lahans`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `lahans_distrik_id_foreign`(`distrik_id` ASC) USING BTREE,
   CONSTRAINT `lahans_distrik_id_foreign` FOREIGN KEY (`distrik_id`) REFERENCES `distriks` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of lahans
@@ -207,6 +212,8 @@ INSERT INTO `lahans` VALUES (8, 'Lahan Jagung Semangga 3', 'lahan-jagung-semangg
 INSERT INTO `lahans` VALUES (9, 'Lahan Jagung Arah Muram', 'lahan-jagung-arah-muram', 'Julian', '7.00', 1, 'Jl. Semangga dua belas RT 007 RW 008', '080912091290', '140.44806', '-8.42583', '01JMRJCAVMHK9AAHQKF48QDFES.jpg', NULL, '2025-02-23 04:52:19', '2025-02-23 04:52:19');
 INSERT INTO `lahans` VALUES (10, 'Lahan Jagung Maulana', 'lahan-jagung-maulana', 'Maulana Fauzi', '21.50', 1, 'Jl. Semangga dua belas RT 005 RW 006', '082344778899', '140.42778', '-8.43944', '01JMRJFAFW484H5YG3C442KRCP.jpg', NULL, '2025-02-23 04:53:57', '2025-02-23 04:53:57');
 INSERT INTO `lahans` VALUES (11, 'Lahan Tetangganya Maulana', 'lahan-tetangganya-maulana', 'Julian', '3.50', 1, 'Jl. Semangga dua belas RT 007 RW 008', '081343026394', '140.44417', '-8.42333', '01JMRJJ69RT19S7QA0KQX21W3G.jpg', NULL, '2025-02-23 04:55:31', '2025-02-23 04:55:31');
+INSERT INTO `lahans` VALUES (12, '1', '1', '22', '2', 1, '3', '4', '5', '6', '01JNB881ED9GZQ5B99RJEWZ6W6.jpg', '2025-03-02 11:05:14', '2025-03-02 11:00:47', '2025-03-02 11:05:14');
+INSERT INTO `lahans` VALUES (13, 'Maulana Fauzi', 'maulana-fauzi', 'Maulana Fauzi', '100', 1, 'Jl. Kemangi Kemayoran', '082344778899', '-7.277882', '-8.39361', '01JNB9RM1BMXW8CXA6ZH8VW6E8.jpg', '2025-03-02 11:47:56', '2025-03-02 11:27:19', '2025-03-02 11:47:56');
 
 -- ----------------------------
 -- Table structure for migrations
@@ -307,7 +314,7 @@ DROP TABLE IF EXISTS `produksis`;
 CREATE TABLE `produksis`  (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `lahan_id` bigint UNSIGNED NOT NULL,
-  `tahun_produksi` int NOT NULL,
+  `tanggal_produksi` date NOT NULL,
   `hasil_produksi` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -315,22 +322,19 @@ CREATE TABLE `produksis`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `produksis_lahan_id_foreign`(`lahan_id` ASC) USING BTREE,
   CONSTRAINT `produksis_lahan_id_foreign` FOREIGN KEY (`lahan_id`) REFERENCES `lahans` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of produksis
 -- ----------------------------
-INSERT INTO `produksis` VALUES (1, 7, 2024, '10', NULL, '2025-02-27 11:11:50', '2025-02-27 11:11:50');
-INSERT INTO `produksis` VALUES (2, 9, 2024, '11', NULL, '2025-02-27 11:21:52', '2025-03-01 08:07:17');
-INSERT INTO `produksis` VALUES (3, 10, 2024, '12', NULL, '2025-02-27 11:22:03', '2025-03-01 08:07:28');
-INSERT INTO `produksis` VALUES (4, 3, 2024, '13', NULL, '2025-02-27 11:24:12', '2025-03-01 08:07:37');
-INSERT INTO `produksis` VALUES (5, 4, 2024, '14', NULL, '2025-02-27 11:24:23', '2025-03-01 08:07:45');
-INSERT INTO `produksis` VALUES (6, 8, 2024, '15', NULL, '2025-02-27 11:24:49', '2025-03-01 08:07:59');
-INSERT INTO `produksis` VALUES (7, 1, 2024, '16', NULL, '2025-02-27 11:24:59', '2025-03-01 08:08:09');
-INSERT INTO `produksis` VALUES (8, 2, 2024, '17', NULL, '2025-02-27 11:25:09', '2025-03-01 08:08:16');
-INSERT INTO `produksis` VALUES (9, 6, 2024, '18', NULL, '2025-02-27 11:25:21', '2025-03-01 08:08:24');
-INSERT INTO `produksis` VALUES (10, 5, 2024, '19', NULL, '2025-02-27 11:25:52', '2025-03-01 08:08:33');
-INSERT INTO `produksis` VALUES (11, 11, 2024, '20', NULL, '2025-02-27 11:26:07', '2025-03-01 08:08:52');
+INSERT INTO `produksis` VALUES (14, 7, '2025-01-01', '10', NULL, '2025-03-12 21:32:10', '2025-03-12 21:32:10');
+INSERT INTO `produksis` VALUES (15, 7, '2025-06-17', '11', NULL, '2025-03-12 21:32:32', '2025-03-12 21:32:32');
+INSERT INTO `produksis` VALUES (16, 7, '2025-09-09', '13', NULL, '2025-03-12 21:32:43', '2025-03-12 21:32:43');
+INSERT INTO `produksis` VALUES (17, 7, '2025-12-11', '12.5', NULL, '2025-03-12 21:32:56', '2025-03-12 21:32:56');
+INSERT INTO `produksis` VALUES (18, 3, '2024-01-06', '13.2', NULL, '2025-03-12 21:33:28', '2025-03-12 21:33:28');
+INSERT INTO `produksis` VALUES (19, 3, '2024-04-09', '14.99', NULL, '2025-03-12 21:33:41', '2025-03-12 21:34:43');
+INSERT INTO `produksis` VALUES (20, 3, '2024-09-07', '10.75', NULL, '2025-03-12 21:33:54', '2025-03-12 21:34:30');
+INSERT INTO `produksis` VALUES (21, 3, '2024-11-30', '11', NULL, '2025-03-12 21:34:07', '2025-03-12 21:34:07');
 
 -- ----------------------------
 -- Table structure for role_has_permissions
@@ -388,7 +392,9 @@ CREATE TABLE `sessions`  (
 -- ----------------------------
 -- Records of sessions
 -- ----------------------------
-INSERT INTO `sessions` VALUES ('X8xzvR571qCTkHDLxEnhYvoOMjDK4bsZyFdc2tek', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiT1FGVUl0N1kxbkcyRjdQczZjaDlrbW5ESFZrNmxka0NoSG1HdHhIMSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly9hcHBwZW1ldGFhbmxhaGFuamFndW5nLnRlc3QiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTIkUWZSNUtsQkxwVXRJZDNIU0JCZFZKZVVacy9XOFovS1hibFAzZGVvNHY1TzQybjN1cVdOcW0iO3M6ODoiZmlsYW1lbnQiO2E6MDp7fX0=', 1740817244);
+INSERT INTO `sessions` VALUES ('5Rl4deZYu4iU55LR8pvFidsdAG23fZwps541Huru', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoid2ZweDZxaHRpZzdBakJIVTBMS2Vqd1hNcDJlMjlUMmYxOXNDZ1h3biI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1740946601);
+INSERT INTO `sessions` VALUES ('apbSwjOb3Zq4Jwvm7bW3P4eFkk6rpEYQ6BT20Gkg', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiRjkzSzdpTFFCbTI5NXlMOFRpM3FvUjNOVjdiUXUzRGJqWjhQa3FGNiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMiRRZlI1S2xCTHBVdElkM0hTQkJkVkplVVpzL1c4Wi9LWGJsUDNkZW80djVPNDJuM3VxV05xbSI7czo4OiJmaWxhbWVudCI7YTowOnt9fQ==', 1741815502);
+INSERT INTO `sessions` VALUES ('fWBMSFjcsaDE6VJWOFCUkAxneiLHe7LhLZ2JC74G', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoicjk3ZXZpNEFxQ0ZyYks4MVBLdmFDREFTTHNhelFjcGxLSjF6NzZPWSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDA6Imh0dHA6Ly9hcHBwZW1ldGFhbmxhaGFuamFndW5nLnRlc3QvYWRtaW4iO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTIkVGlxWGNNRUliSWJ6MHhEL2ZhUWxLZXpkNzNkLkQ1ZTRJa1l4NlNwWTFCWlZyb3prY0huVzYiO3M6ODoiZmlsYW1lbnQiO2E6MDp7fX0=', 1740919596);
 
 -- ----------------------------
 -- Table structure for users
