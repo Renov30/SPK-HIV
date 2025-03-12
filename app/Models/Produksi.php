@@ -12,7 +12,7 @@ class Produksi extends Model
     use SoftDeletes;
     protected $fillable = [
         'lahan_id',
-        'tahun_produksi',
+        'tanggal_produksi',
         'hasil_produksi',
     ];
 

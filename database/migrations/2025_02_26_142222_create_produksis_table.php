@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('produksis', function (Blueprint $table) {
             $table->id();
             $table->foreignId('lahan_id')->constrained()->cascadeOnDelete();
-            $table->integer('tahun_produksi');
+            $table->date('tanggal_produksi');
             $table->string('hasil_produksi');
             $table->softDeletes();
             $table->timestamps();

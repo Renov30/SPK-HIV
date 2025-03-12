@@ -7,6 +7,7 @@ use App\Filament\Resources\ProduksiResource\RelationManagers;
 use App\Models\Produksi;
 use Filament\Actions\Exports\Models\Export;
 use Filament\Forms;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
@@ -42,11 +43,10 @@ class ProduksiResource extends Resource
                     ->required()
                     ->relationship('lahan', 'name')
                     ->preload(),
-                Select::make('tahun_produksi')
-                    ->label('Tahun')
-                    ->options(
-                        array_combine(range(date('Y'), 2015), range(date('Y'), 2015))
-                    )
+                DatePicker::make('tanggal_produksi')
+                    ->label('Tanggal Produksi')
+                    ->displayFormat('d M Y')
+                    ->native(false)
                     ->required(),
                 TextInput::make('hasil_produksi')
                     ->label('Jumlah Produksi')
@@ -64,8 +64,8 @@ class ProduksiResource extends Resource
                     ->label('Nama Lahan')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('tahun_produksi')
-                    ->label('Tahun Produksi')
+                TextColumn::make('tanggal_produksi')
+                    ->label('Tanggal Produksi')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('hasil_produksi')
