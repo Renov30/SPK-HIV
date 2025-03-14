@@ -40,14 +40,33 @@ class FrontController extends Controller
         return view('front.data', compact('semua'));
     }
 
-    public function detail(Lahan $lahan)
+    public function detail(Lahan $lahan, Request $request)
     {
-        $lahan->load(['distrik', 'galeri']);
+        // Load relasi yang diperlukan
+        $lahan->load(['distrik', 'galeri', 'produksi']);
+
+        // Ambil daftar tahun produksi unik
+        $tahunProduksi = $lahan->produksi
+            ->map(fn($item) => \Carbon\Carbon::parse($item->tanggal_produksi)->year)
+            ->unique()
+            ->sort()
+            ->values();
+
+        // Ambil tahun yang dipilih dari request
+        $tahunDipilih = $request->input('tahun');
+
+        // Ambil data produksi dengan filter tahun jika ada
+        $produksi = $lahan->produksi()
+            ->when($tahunDipilih, function ($query) use ($tahunDipilih) {
+                return $query->whereYear('tanggal_produksi', $tahunDipilih);
+            })
+            ->orderBy('tanggal_produksi', 'asc') // Urutkan dari yang terlama
+            ->get();
+
+        // Ambil data lahan lain (untuk tampilan sidebar atau rekomendasi)
         $semua = Lahan::where('id', '!=', $lahan->id)->get();
-        $hasilProduksi = Lahan::with(['produksi' => function ($query) {
-            $query->latest();
-        }]);
-        return view('front.detail', compact('lahan', 'semua'));
+
+        return view('front.detail', compact('lahan', 'semua', 'produksi', 'tahunProduksi', 'tahunDipilih'));
     }
 
     public function peta()

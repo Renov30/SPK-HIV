@@ -117,39 +117,41 @@
                     </table>
                 </div>
             </div>
+            <form method="GET" action="">
+                <label for="tahun">Pilih Tahun:</label>
+                <select name="tahun" id="tahun" onchange="this.form.submit()">
+                    <option value="">Semua Tahun</option>
+                    @foreach ($tahunProduksi as $tahun)
+                        <option value="{{ $tahun }}" {{ request('tahun') == $tahun ? 'selected' : '' }}>
+                            {{ $tahun }}
+                        </option>
+                    @endforeach
+                </select>
+            </form>
+            
             <div class="teks">
                 <h3>Data Produksi</h3>
-                <table border="1" cellpadding="5"">
+                <table border="1" cellpadding="5">
                     <thead>
                         <tr>
-                            <th>Kuartal</th>
                             <th>Tanggal Produksi</th>
                             <th>Hasil Produksi (Ton)</th>
+                            <th>Kuartal</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @php
-                            $totalProduksi = 0;
-                        @endphp
-                        @foreach ($lahan->produksi->sortBy('tanggal_produksi') as $produksi)
+                        @foreach ($produksi as $item)
                             @php
-                                $bulan = \Carbon\Carbon::parse($produksi->tanggal_produksi)->month;
+                                $bulan = \Carbon\Carbon::parse($item->tanggal_produksi)->month;
                                 $kuartal = ceil($bulan / 3);
-                                $totalProduksi += $produksi->hasil_produksi;
                             @endphp
                             <tr>
+                                <td>{{ \Carbon\Carbon::parse($item->tanggal_produksi)->translatedFormat('d F Y') }}</td>
+                                <td>{{ $item->hasil_produksi }}</td>
                                 <td>Kuartal {{ $kuartal }}</td>
-                                <td>{{ \Carbon\Carbon::parse($produksi->tanggal_produksi)->locale('id')->translatedFormat('d F Y') }}</td>
-                                <td>{{ $produksi->hasil_produksi }}</td>
                             </tr>
                         @endforeach
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="2">Total Produksi</td>
-                            <td>{{ $totalProduksi }}</td>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
             
