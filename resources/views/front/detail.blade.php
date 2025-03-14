@@ -79,15 +79,15 @@
                             <td>:</td>
                             <td>{{$lahan->nama_petani}}</td>
                         </tr>
-                        <tr>
+                        {{-- <tr>
                             <td>Hasil Produksi</td>
                             <td>:</td>
                             <td>{{$lahan->produksi()->latest()->first()?->hasil_produksi ?? 'Belum ada data'}}</td>
-                        </tr>
+                        </tr> --}}
                         <tr>
                             <td>Luas Lahan</td>
                             <td>:</td>
-                            <td>{{$lahan->luas_lahan}}</td>
+                            <td>{{$lahan->luas_lahan}} hektar</td>
                         </tr>
                         <tr>
                             <td>Distrik</td>
@@ -117,6 +117,42 @@
                     </table>
                 </div>
             </div>
+            <div class="teks">
+                <h3>Data Produksi</h3>
+                <table border="1" cellpadding="5"">
+                    <thead>
+                        <tr>
+                            <th>Kuartal</th>
+                            <th>Tanggal Produksi</th>
+                            <th>Hasil Produksi (Ton)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @php
+                            $totalProduksi = 0;
+                        @endphp
+                        @foreach ($lahan->produksi->sortBy('tanggal_produksi') as $produksi)
+                            @php
+                                $bulan = \Carbon\Carbon::parse($produksi->tanggal_produksi)->month;
+                                $kuartal = ceil($bulan / 3);
+                                $totalProduksi += $produksi->hasil_produksi;
+                            @endphp
+                            <tr>
+                                <td>Kuartal {{ $kuartal }}</td>
+                                <td>{{ \Carbon\Carbon::parse($produksi->tanggal_produksi)->locale('id')->translatedFormat('d F Y') }}</td>
+                                <td>{{ $produksi->hasil_produksi }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">Total Produksi</td>
+                            <td>{{ $totalProduksi }}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            
         </section>
         <!-- content section end -->
         <!-- gallery section start -->
