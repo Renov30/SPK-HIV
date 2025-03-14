@@ -11,7 +11,7 @@
  Target Server Version : 80030 (8.0.30)
  File Encoding         : 65001
 
- Date: 13/03/2025 06:38:24
+ Date: 14/03/2025 22:59:06
 */
 
 SET NAMES utf8mb4;
@@ -35,9 +35,9 @@ INSERT INTO `cache` VALUES ('356a192b7913b04c54574d18c28d46e6395428ab', 'i:2;', 
 INSERT INTO `cache` VALUES ('356a192b7913b04c54574d18c28d46e6395428ab:timer', 'i:1740286587;', 1740286587);
 INSERT INTO `cache` VALUES ('da4b9237bacccdf19c0760cab7aec4a8359010b0', 'i:1;', 1740914971);
 INSERT INTO `cache` VALUES ('da4b9237bacccdf19c0760cab7aec4a8359010b0:timer', 'i:1740914971;', 1740914971);
-INSERT INTO `cache` VALUES ('livewire-rate-limiter:a17961fa74e9275d529f489537f179c05d50c2f3', 'i:1;', 1741814989);
-INSERT INTO `cache` VALUES ('livewire-rate-limiter:a17961fa74e9275d529f489537f179c05d50c2f3:timer', 'i:1741814989;', 1741814989);
-INSERT INTO `cache` VALUES ('spatie.permission.cache', 'a:3:{s:5:\"alias\";a:0:{}s:11:\"permissions\";a:0:{}s:5:\"roles\";a:0:{}}', 1741901329);
+INSERT INTO `cache` VALUES ('livewire-rate-limiter:a17961fa74e9275d529f489537f179c05d50c2f3', 'i:1;', 1741958731);
+INSERT INTO `cache` VALUES ('livewire-rate-limiter:a17961fa74e9275d529f489537f179c05d50c2f3:timer', 'i:1741958731;', 1741958731);
+INSERT INTO `cache` VALUES ('spatie.permission.cache', 'a:3:{s:5:\"alias\";a:0:{}s:11:\"permissions\";a:0:{}s:5:\"roles\";a:0:{}}', 1742045073);
 
 -- ----------------------------
 -- Table structure for cache_locks
@@ -168,7 +168,7 @@ CREATE TABLE `jobs`  (
   `created_at` int UNSIGNED NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `jobs_queue_index`(`queue` ASC) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jobs
@@ -322,7 +322,7 @@ CREATE TABLE `produksis`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `produksis_lahan_id_foreign`(`lahan_id` ASC) USING BTREE,
   CONSTRAINT `produksis_lahan_id_foreign` FOREIGN KEY (`lahan_id`) REFERENCES `lahans` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of produksis
@@ -335,6 +335,7 @@ INSERT INTO `produksis` VALUES (18, 3, '2024-01-06', '13.2', NULL, '2025-03-12 2
 INSERT INTO `produksis` VALUES (19, 3, '2024-04-09', '14.99', NULL, '2025-03-12 21:33:41', '2025-03-12 21:34:43');
 INSERT INTO `produksis` VALUES (20, 3, '2024-09-07', '10.75', NULL, '2025-03-12 21:33:54', '2025-03-12 21:34:30');
 INSERT INTO `produksis` VALUES (21, 3, '2024-11-30', '11', NULL, '2025-03-12 21:34:07', '2025-03-12 21:34:07');
+INSERT INTO `produksis` VALUES (22, 7, '2024-02-15', '11.2', NULL, '2025-03-14 13:28:52', '2025-03-14 13:28:52');
 
 -- ----------------------------
 -- Table structure for role_has_permissions
@@ -392,9 +393,7 @@ CREATE TABLE `sessions`  (
 -- ----------------------------
 -- Records of sessions
 -- ----------------------------
-INSERT INTO `sessions` VALUES ('5Rl4deZYu4iU55LR8pvFidsdAG23fZwps541Huru', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoid2ZweDZxaHRpZzdBakJIVTBMS2Vqd1hNcDJlMjlUMmYxOXNDZ1h3biI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1740946601);
-INSERT INTO `sessions` VALUES ('apbSwjOb3Zq4Jwvm7bW3P4eFkk6rpEYQ6BT20Gkg', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiRjkzSzdpTFFCbTI5NXlMOFRpM3FvUjNOVjdiUXUzRGJqWjhQa3FGNiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMiRRZlI1S2xCTHBVdElkM0hTQkJkVkplVVpzL1c4Wi9LWGJsUDNkZW80djVPNDJuM3VxV05xbSI7czo4OiJmaWxhbWVudCI7YTowOnt9fQ==', 1741815502);
-INSERT INTO `sessions` VALUES ('fWBMSFjcsaDE6VJWOFCUkAxneiLHe7LhLZ2JC74G', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoicjk3ZXZpNEFxQ0ZyYks4MVBLdmFDREFTTHNhelFjcGxLSjF6NzZPWSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDA6Imh0dHA6Ly9hcHBwZW1ldGFhbmxhaGFuamFndW5nLnRlc3QvYWRtaW4iO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTIkVGlxWGNNRUliSWJ6MHhEL2ZhUWxLZXpkNzNkLkQ1ZTRJa1l4NlNwWTFCWlZyb3prY0huVzYiO3M6ODoiZmlsYW1lbnQiO2E6MDp7fX0=', 1740919596);
+INSERT INTO `sessions` VALUES ('BbV7FAgl8QdUj4kCvn4vgFdlcKVZNN3yOmGNupWE', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoidHNITU8ycEVGaGNxM2NoT0dHb2hlSDk4M2ZrdU5wMXVJcGI3bEl5TCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NzQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXRhL2RldGFpbC1sYWhhbi9sYWhhbi1qYWd1bmctc2VtYW5nZ2EtMT90YWh1bj0yMDI0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEyJFFmUjVLbEJMcFV0SWQzSFNCQmRWSmVVWnMvVzhaL0tYYmxQM2RlbzR2NU80Mm4zdXFXTnFtIjtzOjg6ImZpbGFtZW50IjthOjA6e319', 1741960711);
 
 -- ----------------------------
 -- Table structure for users
