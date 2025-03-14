@@ -60,13 +60,16 @@ class FrontController extends Controller
             ->when($tahunDipilih, function ($query) use ($tahunDipilih) {
                 return $query->whereYear('tanggal_produksi', $tahunDipilih);
             })
-            ->orderBy('tanggal_produksi', 'asc') // Urutkan dari yang terlama
+            ->orderBy('tanggal_produksi', 'asc')
             ->get();
+
+        // Hitung total hasil produksi
+        $totalProduksi = $produksi->sum('hasil_produksi');
 
         // Ambil data lahan lain (untuk tampilan sidebar atau rekomendasi)
         $semua = Lahan::where('id', '!=', $lahan->id)->get();
 
-        return view('front.detail', compact('lahan', 'semua', 'produksi', 'tahunProduksi', 'tahunDipilih'));
+        return view('front.detail', compact('lahan', 'semua', 'produksi', 'tahunProduksi', 'tahunDipilih', 'totalProduksi'));
     }
 
     public function peta()

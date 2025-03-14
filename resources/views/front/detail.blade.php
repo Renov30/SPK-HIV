@@ -152,7 +152,14 @@
                             </tr>
                         @endforeach
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">Total Hasil Produksi</td>
+                            <td>{{ $totalProduksi }} Ton</td>
+                        </tr>
+                    </tfoot>
                 </table>
+                
             </div>
             
         </section>
