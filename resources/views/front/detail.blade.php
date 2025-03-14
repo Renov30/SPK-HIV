@@ -117,21 +117,23 @@
                     </table>
                 </div>
             </div>
-            <form method="GET" action="">
-                <label for="tahun">Pilih Tahun:</label>
-                <select name="tahun" id="tahun" onchange="this.form.submit()">
-                    <option value="">Semua Tahun</option>
-                    @foreach ($tahunProduksi as $tahun)
-                        <option value="{{ $tahun }}" {{ request('tahun') == $tahun ? 'selected' : '' }}>
-                            {{ $tahun }}
-                        </option>
-                    @endforeach
-                </select>
-            </form>
-            
             <div class="teks">
-                <h3>Data Produksi</h3>
-                <table border="1" cellpadding="5">
+                <div class="flex justify-between pb-2 items-center">
+                    <h3>Data Produksi</h3>
+                    <form method="GET" action="" class="">
+                        <label for="tahun" class="text-md">Pilih Tahun:</label>
+                        <select name="tahun" id="tahun" onchange="this.form.submit()" class="rounded-md ml-2 focus:ring-0 focus:outline-none focus:border-gray-500 border border-gray-300">
+                            <option value="">Semua Tahun</option>
+                            @foreach ($tahunProduksi as $tahun)
+                                <option value="{{ $tahun }}" {{ request('tahun') == $tahun ? 'selected' : '' }}>
+                                    {{ $tahun }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </form>
+                </div>
+                
+                <table border="1" cellpadding="5" class="border border-slate-300">
                     <thead>
                         <tr>
                             <th>Tanggal Produksi</th>
