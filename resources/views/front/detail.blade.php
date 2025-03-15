@@ -117,7 +117,7 @@
                     </table>
                 </div>
             </div>
-            <div class="teks">
+            <div class="teks-data">
                 <div class="flex justify-between pb-2 items-center">
                     <h3>Data Produksi</h3>
                     <form method="GET" action="" class="">
@@ -133,7 +133,7 @@
                     </form>
                 </div>
                 
-                <table border="1" cellpadding="5" class="border border-slate-300">
+                <table border="1" cellpadding="5" class="border border-slate-300 ">
                     <thead>
                         <tr>
                             <th>Tanggal Produksi</th>
