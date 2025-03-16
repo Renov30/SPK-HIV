@@ -3,7 +3,7 @@
     /* --secondary: #2e683e; */
     --secondary: #228b22;
     --third: #ff9500;
-    --bg: #f5fffa;
+    --bg: #ecfdf5;
     --white: #fff;
     --font: #111827;
 }
@@ -142,7 +142,7 @@ a:visited {
     bottom: 0;
     background: linear-gradient(
         0deg,
-        rgba(245, 255, 250, 1) 8%,
+        /* rgba(245, 255, 250, 1) 8%, */ rgba(236, 253, 245) 8%,
         rgba(255, 255, 255, 0) 50%
     );
 }
@@ -606,8 +606,8 @@ td {
 .teks-data th {
     text-align: left;
     padding: 1rem;
-    background-color: var(--primary);
-    color: white;
+    background-color: var(--white);
+    color: var(--font);
 }
 .teks-data tfoot {
     font-weight: bold;
