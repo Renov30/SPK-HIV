@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('tempat_lahir')->nullable();
             $table->date('tgl_lahir')->nullable();
             $table->string('pekerjaan')->nullable();
+            $table->foreignId('role')->constrained()->cascadeOnDelete();
             $table->rememberToken();
             $table->timestamps();
         });
