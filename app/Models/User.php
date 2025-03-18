@@ -7,7 +7,6 @@ namespace App\Models;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
@@ -36,7 +35,6 @@ class User extends Authenticatable implements FilamentUser
         'tempat_lahir',
         'tgl_lahir',
         'pekerjaan',
-        'role',
     ];
 
     /**
@@ -60,12 +58,5 @@ class User extends Authenticatable implements FilamentUser
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    protected static function booted(): void
-    {
-        static::creating(function (User $user) {
-            $user->role = 'gapoktan';
-        });
     }
 }
