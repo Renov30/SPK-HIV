@@ -8,6 +8,20 @@
             <p>
                 Tampilan penyebaran lahan jagung di sekitar Kabupaten Merauke yang telah terdata.
             </p>
+            <!-- Filter Distrik -->
+            <div class="top-peta">
+                <form action="{{ route('front.peta') }}" method="GET" class="filter-distrik">
+                    <select name="distrik" onchange="this.form.submit()">
+                        <option value="">Pilih Distrik</option>
+                        @foreach($distriks as $distrik)
+                            <option value="{{ $distrik->id }}" {{ request('distrik') == $distrik->id ? 'selected' : '' }}>
+                                {{ $distrik->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </form>
+            </div>
+            
             <div class="row">
                 <div id="map"></div>
                 <script>

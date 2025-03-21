@@ -35,9 +35,15 @@ class FrontController extends Controller
                 ->orWhere('alamat', 'LIKE', "%{$search}%");
         }
 
-        $semua = $query->paginate(8);
+        // Filter berdasarkan distrik jika ada
+        if ($request->has('distrik') && !empty($request->distrik)) {
+            $query->where('distrik_id', $request->distrik);
+        }
 
-        return view('front.data', compact('semua'));
+        $semua = $query->paginate(8);
+        $distriks = Distrik::all(); // Ambil daftar distrik untuk dropdown
+
+        return view('front.data', compact('semua', 'distriks'));
     }
 
     public function detail(Lahan $lahan, Request $request)
@@ -72,9 +78,18 @@ class FrontController extends Controller
         return view('front.detail', compact('lahan', 'semua', 'produksi', 'tahunProduksi', 'tahunDipilih', 'totalProduksi'));
     }
 
-    public function peta()
+    public function peta(Request $request)
     {
-        $lahans = Lahan::select('id', 'name', 'slug', 'alamat', 'longitude', 'latitude')->get();
-        return view('front.peta', compact('lahans'));
+        $query = Lahan::select('id', 'name', 'slug', 'alamat', 'longitude', 'latitude', 'distrik_id');
+
+        // Filter berdasarkan distrik jika ada
+        if ($request->has('distrik') && !empty($request->distrik)) {
+            $query->where('distrik_id', $request->distrik);
+        }
+
+        $lahans = $query->get();
+        $distriks = Distrik::all(); // Ambil daftar distrik untuk dropdown
+
+        return view('front.peta', compact('lahans', 'distriks'));
     }
 }

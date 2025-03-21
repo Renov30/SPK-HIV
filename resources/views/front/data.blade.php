@@ -15,10 +15,23 @@
           <input type="text" placeholder="Search.." name="search" value="{{ request('search') }}" />
           <button type="submit"><i data-feather="search"></i></button>
       </form>
-        <!-- toggle button -->
-        <button class="toggleBtn" id="toggleViewBtn">
-          <i data-feather="image"></i>
-        </button>
+      {{-- filter dropdown --}}
+      <div class="flex items-center gap-3">
+      <form action="{{ route('front.data') }}" method="GET" class="filter-distrik">
+        <select name="distrik" onchange="this.form.submit()">
+          <option value="">Pilih Distrik</option>
+          @foreach($distriks as $distrik)
+          <option value="{{ $distrik->id }}" {{ request('distrik') == $distrik->id ? 'selected' : '' }}>
+            {{ $distrik->name }}
+          </option>
+          @endforeach
+        </select>
+      </form>
+      <!-- toggle button -->
+      <button class="toggleBtn" id="toggleViewBtn">
+        <i data-feather="image"></i>
+      </button>
+    </div>
       </div>
 
       <!-- card view -->
