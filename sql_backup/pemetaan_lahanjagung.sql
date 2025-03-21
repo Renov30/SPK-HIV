@@ -11,7 +11,7 @@
  Target Server Version : 80030 (8.0.30)
  File Encoding         : 65001
 
- Date: 14/03/2025 22:59:06
+ Date: 21/03/2025 10:11:59
 */
 
 SET NAMES utf8mb4;
@@ -31,13 +31,9 @@ CREATE TABLE `cache`  (
 -- ----------------------------
 -- Records of cache
 -- ----------------------------
-INSERT INTO `cache` VALUES ('356a192b7913b04c54574d18c28d46e6395428ab', 'i:2;', 1740286587);
-INSERT INTO `cache` VALUES ('356a192b7913b04c54574d18c28d46e6395428ab:timer', 'i:1740286587;', 1740286587);
-INSERT INTO `cache` VALUES ('da4b9237bacccdf19c0760cab7aec4a8359010b0', 'i:1;', 1740914971);
-INSERT INTO `cache` VALUES ('da4b9237bacccdf19c0760cab7aec4a8359010b0:timer', 'i:1740914971;', 1740914971);
-INSERT INTO `cache` VALUES ('livewire-rate-limiter:a17961fa74e9275d529f489537f179c05d50c2f3', 'i:1;', 1741958731);
-INSERT INTO `cache` VALUES ('livewire-rate-limiter:a17961fa74e9275d529f489537f179c05d50c2f3:timer', 'i:1741958731;', 1741958731);
-INSERT INTO `cache` VALUES ('spatie.permission.cache', 'a:3:{s:5:\"alias\";a:0:{}s:11:\"permissions\";a:0:{}s:5:\"roles\";a:0:{}}', 1742045073);
+INSERT INTO `cache` VALUES ('livewire-rate-limiter:a17961fa74e9275d529f489537f179c05d50c2f3', 'i:1;', 1742519468);
+INSERT INTO `cache` VALUES ('livewire-rate-limiter:a17961fa74e9275d529f489537f179c05d50c2f3:timer', 'i:1742519468;', 1742519468);
+INSERT INTO `cache` VALUES ('spatie.permission.cache', 'a:3:{s:5:\"alias\";a:4:{s:1:\"a\";s:2:\"id\";s:1:\"b\";s:4:\"name\";s:1:\"c\";s:10:\"guard_name\";s:1:\"r\";s:5:\"roles\";}s:11:\"permissions\";a:8:{i:0;a:4:{s:1:\"a\";i:1;s:1:\"b\";s:10:\"view lahan\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:2;}}i:1;a:4:{s:1:\"a\";i:2;s:1:\"b\";s:11:\"view galeri\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:2;}}i:2;a:4:{s:1:\"a\";i:3;s:1:\"b\";s:13:\"view produksi\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:2;}}i:3;a:4:{s:1:\"a\";i:4;s:1:\"b\";s:17:\"manage permission\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:4;a:4:{s:1:\"a\";i:5;s:1:\"b\";s:11:\"manage user\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:5;a:4:{s:1:\"a\";i:6;s:1:\"b\";s:12:\"manage roles\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:6;a:4:{s:1:\"a\";i:7;s:1:\"b\";s:14:\"view dashboard\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:2;}}i:7;a:4:{s:1:\"a\";i:8;s:1:\"b\";s:12:\"view distrik\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}}s:5:\"roles\";a:2:{i:0;a:3:{s:1:\"a\";i:1;s:1:\"b\";s:5:\"admin\";s:1:\"c\";s:3:\"web\";}i:1;a:3:{s:1:\"a\";i:2;s:1:\"b\";s:8:\"gapoktan\";s:1:\"c\";s:3:\"web\";}}}', 1742600714);
 
 -- ----------------------------
 -- Table structure for cache_locks
@@ -168,7 +164,7 @@ CREATE TABLE `jobs`  (
   `created_at` int UNSIGNED NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `jobs_queue_index`(`queue` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jobs
@@ -273,6 +269,7 @@ CREATE TABLE `model_has_roles`  (
 -- ----------------------------
 INSERT INTO `model_has_roles` VALUES (1, 'App\\Models\\User', 1);
 INSERT INTO `model_has_roles` VALUES (1, 'App\\Models\\User', 2);
+INSERT INTO `model_has_roles` VALUES (2, 'App\\Models\\User', 4);
 
 -- ----------------------------
 -- Table structure for password_reset_tokens
@@ -301,11 +298,19 @@ CREATE TABLE `permissions`  (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `permissions_name_guard_name_unique`(`name` ASC, `guard_name` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of permissions
 -- ----------------------------
+INSERT INTO `permissions` VALUES (1, 'view lahan', 'web', '2025-03-20 00:37:58', '2025-03-20 23:42:37');
+INSERT INTO `permissions` VALUES (2, 'view galeri', 'web', '2025-03-20 00:37:58', '2025-03-20 23:42:55');
+INSERT INTO `permissions` VALUES (3, 'view produksi', 'web', '2025-03-20 00:37:58', '2025-03-20 23:43:17');
+INSERT INTO `permissions` VALUES (4, 'manage permission', 'web', '2025-03-20 23:43:50', '2025-03-20 23:43:50');
+INSERT INTO `permissions` VALUES (5, 'manage user', 'web', '2025-03-20 23:44:04', '2025-03-20 23:44:04');
+INSERT INTO `permissions` VALUES (6, 'manage roles', 'web', '2025-03-20 23:44:19', '2025-03-20 23:44:19');
+INSERT INTO `permissions` VALUES (7, 'view dashboard', 'web', '2025-03-20 23:44:47', '2025-03-20 23:44:47');
+INSERT INTO `permissions` VALUES (8, 'view distrik', 'web', '2025-03-20 23:45:08', '2025-03-20 23:45:08');
 
 -- ----------------------------
 -- Table structure for produksis
@@ -322,7 +327,7 @@ CREATE TABLE `produksis`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `produksis_lahan_id_foreign`(`lahan_id` ASC) USING BTREE,
   CONSTRAINT `produksis_lahan_id_foreign` FOREIGN KEY (`lahan_id`) REFERENCES `lahans` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of produksis
@@ -353,6 +358,18 @@ CREATE TABLE `role_has_permissions`  (
 -- ----------------------------
 -- Records of role_has_permissions
 -- ----------------------------
+INSERT INTO `role_has_permissions` VALUES (1, 1);
+INSERT INTO `role_has_permissions` VALUES (2, 1);
+INSERT INTO `role_has_permissions` VALUES (3, 1);
+INSERT INTO `role_has_permissions` VALUES (4, 1);
+INSERT INTO `role_has_permissions` VALUES (5, 1);
+INSERT INTO `role_has_permissions` VALUES (6, 1);
+INSERT INTO `role_has_permissions` VALUES (7, 1);
+INSERT INTO `role_has_permissions` VALUES (8, 1);
+INSERT INTO `role_has_permissions` VALUES (1, 2);
+INSERT INTO `role_has_permissions` VALUES (2, 2);
+INSERT INTO `role_has_permissions` VALUES (3, 2);
+INSERT INTO `role_has_permissions` VALUES (7, 2);
 
 -- ----------------------------
 -- Table structure for roles
@@ -393,7 +410,7 @@ CREATE TABLE `sessions`  (
 -- ----------------------------
 -- Records of sessions
 -- ----------------------------
-INSERT INTO `sessions` VALUES ('BbV7FAgl8QdUj4kCvn4vgFdlcKVZNN3yOmGNupWE', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoidHNITU8ycEVGaGNxM2NoT0dHb2hlSDk4M2ZrdU5wMXVJcGI3bEl5TCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NzQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXRhL2RldGFpbC1sYWhhbi9sYWhhbi1qYWd1bmctc2VtYW5nZ2EtMT90YWh1bj0yMDI0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEyJFFmUjVLbEJMcFV0SWQzSFNCQmRWSmVVWnMvVzhaL0tYYmxQM2RlbzR2NU80Mm4zdXFXTnFtIjtzOjg6ImZpbGFtZW50IjthOjA6e319', 1741960711);
+INSERT INTO `sessions` VALUES ('1QZ0BY43BJDCdd94bcq8Y3qBTjENbSM31pRNuzPu', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiTXNsd05Qa2xaR3QwOW55WDVmWXY5RkZJN0lXWW91YjhwMVg1bTVqdiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi91c2VycyI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMiRRZlI1S2xCTHBVdElkM0hTQkJkVkplVVpzL1c4Wi9LWGJsUDNkZW80djVPNDJuM3VxV05xbSI7czo4OiJmaWxhbWVudCI7YTowOnt9fQ==', 1742519460);
 
 -- ----------------------------
 -- Table structure for users
@@ -415,12 +432,13 @@ CREATE TABLE `users`  (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `users_email_unique`(`email` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (1, 'admin', 'admin@gmail.com', NULL, '$2y$12$QfR5KlBLpUtId3HSBBdVJeUZs/W8Z/KXblP3deo4v5O42n3uqWNqm', NULL, NULL, NULL, NULL, NULL, NULL, '2025-02-19 13:53:24', '2025-02-19 13:53:24');
 INSERT INTO `users` VALUES (2, 'putri', 'putri@gmail.com', NULL, '$2y$12$TiqXcMEIbIbz0xD/faQlKezd73d.D5e4IkYx6SpY1BZVrozkcHnW6', '-', 'Dwi Putri Fitrianingsih', 'Merauke', '2001-01-01', 'Mahasiswa', NULL, '2025-03-01 08:10:10', '2025-03-01 08:10:10');
+INSERT INTO `users` VALUES (4, 'renov', 'renov@gmail.com', NULL, '$2y$12$4hP1oCijA4912iZsboaKn..DIpbHS1p5UkvxMNr4CKdLDXCGeKgEm', '081343026394', 'Novgeny Ramadhalero Ermiawan', 'Maumere', '2001-11-30', 'Programmer', NULL, '2025-03-20 23:39:34', '2025-03-20 23:40:01');
 
 SET FOREIGN_KEY_CHECKS = 1;
