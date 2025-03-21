@@ -808,7 +808,7 @@ td button:hover {
 
 /* google map detail */
 .card-google-map {
-    padding: 1rem;
+    padding: 0.5rem;
     background-color: white;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
