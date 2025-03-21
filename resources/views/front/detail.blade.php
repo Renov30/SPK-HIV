@@ -136,9 +136,9 @@
                 <table border="1" cellpadding="5" class="border border-slate-300 ">
                     <thead>
                         <tr>
-                            <th>Tanggal Produksi</th>
-                            <th>Hasil Produksi (Ton)</th>
-                            <th>Kuartal</th>
+                            <th class="font-medium">Tanggal Produksi</th>
+                            <th class="font-medium">Hasil Produksi (Ton)</th>
+                            <th class="font-medium">Kuartal</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -156,8 +156,8 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="2">Total Hasil Produksi</td>
-                            <td>{{ $totalProduksi }} Ton</td>
+                            <td colspan="2" class="font-medium">Total Hasil Produksi</td>
+                            <td class="font-medium">{{ $totalProduksi }} Ton</td>
                         </tr>
                     </tfoot>
                 </table>
