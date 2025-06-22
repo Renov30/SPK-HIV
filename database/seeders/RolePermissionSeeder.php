@@ -18,8 +18,8 @@ class RolePermissionSeeder extends Seeder
         $adminRole = Role::create([
             'name' => 'admin'
         ]);
-        $gapoktanRole = Role::create([
-            'name' => 'gapoktan'
+        $pakarRole = Role::create([
+            'name' => 'pakar'
         ]);
         $user = User::create([
             'name' => 'admin',
