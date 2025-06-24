@@ -34,8 +34,7 @@ class GejalaResource extends Resource
                     ->relationship('penyakits', 'nama_penyakit')
                     ->preload()                        // supaya cepat
                     ->searchable()
-                    ->multiple()                       // ← hapus kalau mau pilih 1 saja
-                    ->required(),
+                    ->multiple(),                       // ← hapus kalau mau pilih 1 saja
                 TextInput::make('nama_gejala')
                     ->label('Nama Gejala')
                     ->required()
