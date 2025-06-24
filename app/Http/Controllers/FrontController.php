@@ -51,25 +51,30 @@ class FrontController extends Controller
             return redirect()->route('front.gejala');   // PRG pattern
         }
 
-        // ----- selesai 27 gejala -----
         if ($idGejala > 27) {
-            $kelompok = [
-                'ginjalAkut'   => [1, 2, 3, 4, 5, 6],
-                'ginjalKronis' => [7, 8, 9, 10, 11, 12],
-                'batuGinjal'   => [13, 14, 15, 16, 17],
-                'infeksiGinjal' => [18, 19],
-                'kankerGinjal' => [20, 21, 22],
-                'gagalGinjal'  => [23, 24, 25, 26, 27],
-            ];
+            $penyakits = DB::table('penyakits')->get();
 
-            foreach ($kelompok as $key => $list) {
-                $terpilih = count(array_intersect($persen, $list));
-                $hasil    = number_format($terpilih / count($list), 3) * 100;
-                Session::put($key, $hasil);
+            foreach ($penyakits as $penyakit) {
+                // Ambil daftar gejala yang terkait dengan penyakit ini
+                $gejala_ids = DB::table('relasis')
+                    ->where('penyakit_id', $penyakit->id)
+                    ->pluck('gejala_id')
+                    ->toArray();
+
+                if (count($gejala_ids) > 0) {
+                    $terpilih = count(array_intersect($persen, $gejala_ids));
+                    $hasil = number_format($terpilih / count($gejala_ids), 3) * 100;
+                } else {
+                    $hasil = 0; // kalau tidak ada gejala terdaftar untuk penyakit ini
+                }
+
+                // Simpan dalam session dengan nama penyakit sebagai key
+                Session::put($penyakit->nama_penyakit, $hasil);
             }
 
-            return redirect()->route('front.hasil');    // siapkan view hasil
+            return redirect()->route('front.hasil');
         }
+
 
         // ----- ambil teks gejala sekarang -----
         $gejala = DB::table('gejalas')
@@ -81,38 +86,32 @@ class FrontController extends Controller
 
     public function hasil()
     {
-        $ginjalAkut    = Session::get('ginjalAkut', 0);
-        $ginjalKronis  = Session::get('ginjalKronis', 0);
-        $batuGinjal    = Session::get('batuGinjal', 0);
-        $infeksiGinjal = Session::get('infeksiGinjal', 0);
-        $kankerGinjal  = Session::get('kankerGinjal', 0);
-        $gagalGinjal   = Session::get('gagalGinjal', 0);
+        $penyakits = DB::table('penyakits')->get();
+        $persentase = [];
 
-        // Fungsi untuk menentukan penyakit dominan
-        $values = [
-            $ginjalAkut,
-            $ginjalKronis,
-            $batuGinjal,
-            $infeksiGinjal,
-            $kankerGinjal,
-            $gagalGinjal
-        ];
+        foreach ($penyakits as $penyakit) {
+            $persentase[$penyakit->nama_penyakit] = Session::get($penyakit->nama_penyakit, 0);
+        }
 
-        $penyakit_id = array_keys($values, max($values))[0] + 1;
+        // Cari penyakit dominan
+        $maxVal = max($persentase);
+        $penyakitDominan = array_search($maxVal, $persentase);
 
-        // Ambil solusi dari DB
-        $solusi = DB::table('solusis')->where('penyakit_id', $penyakit_id)->pluck('solusi');
+        // Ambil solusi dari DB berdasarkan penyakit dominan
+        $penyakit_id = DB::table('penyakits')
+            ->where('nama_penyakit', $penyakitDominan)
+            ->value('id');
 
-        return view('front.hasil', compact(
-            'ginjalAkut',
-            'ginjalKronis',
-            'batuGinjal',
-            'infeksiGinjal',
-            'kankerGinjal',
-            'gagalGinjal',
-            'solusi'
-        ));
+        $solusi = DB::table('solusis')
+            ->where('penyakit_id', $penyakit_id)
+            ->pluck('solusi');
+
+        return view('front.hasil', [
+            'persentase' => $persentase,
+            'solusi' => $solusi,
+        ]);
     }
+
 
     public function ulang()
     {
