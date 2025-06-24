@@ -14,16 +14,19 @@ class Penyakit extends Model
     use SoftDeletes;
     protected $fillable = [
         'nama_penyakit',
+        'keterangan',
     ];
 
     public function solusi(): HasMany
     {
         return $this->hasMany(Solusi::class, 'penyakit_id');
     }
+
     public function relasi(): HasMany
     {
         return $this->hasMany(Relasi::class, 'penyakit_id');
     }
+
     public function gejalas(): BelongsToMany
     {
         return $this->belongsToMany(
