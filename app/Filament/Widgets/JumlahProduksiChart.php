@@ -3,6 +3,7 @@
 namespace App\Filament\Widgets;
 
 use App\Models\Lahan;
+use App\Models\Solusi;
 use Filament\Widgets\ChartWidget;
 
 class JumlahProduksiChart extends ChartWidget
@@ -14,23 +15,31 @@ class JumlahProduksiChart extends ChartWidget
     }
 
     protected static bool $isLazy = false;
-    protected static ?string $heading = 'Total Produksi Per Distrik (ton)';
+    protected static ?string $heading = 'Total Solusi Per Penyakit';
+
+    private function generateColorFromId($id): string
+    {
+        // Ambil 6 karakter pertama dari hash md5 ID, agar jadi warna hex
+        return '#' . substr(md5($id), 0, 6);
+    }
 
     protected function getData(): array
     {
-        $data = Lahan::join('produksis', 'lahans.id', '=', 'produksis.lahan_id')
-            ->select('lahans.distrik_id')
-            ->selectRaw('SUM(produksis.hasil_produksi) as total_produksi')
-            ->groupBy('lahans.distrik_id')
-            ->with('distrik')
+        $data = Solusi::selectRaw('penyakit_id, COUNT(*) as total')
+            ->groupBy('penyakit_id')
+            ->with('penyakit')
             ->get();
 
+        $backgroundColors = $data->pluck('penyakit_id')->map(function ($id) {
+            return $this->generateColorFromId($id);
+        })->toArray();
+
         return [
-            'labels' => $data->pluck('distrik.name')->toArray(),
+            'labels' => $data->pluck('penyakit.nama_penyakit')->toArray(),
             'datasets' => [
                 [
-                    'data' => $data->pluck('total_produksi')->toArray(),
-                    'backgroundColor' => ['#ff6384', '#36a2eb', '#ffcd56'],
+                    'data' => $data->pluck('total')->toArray(),
+                    'backgroundColor' => $backgroundColors,
                 ],
             ],
         ];
@@ -38,6 +47,6 @@ class JumlahProduksiChart extends ChartWidget
 
     protected function getType(): string
     {
-        return 'pie';
+        return 'doughnut';
     }
 }

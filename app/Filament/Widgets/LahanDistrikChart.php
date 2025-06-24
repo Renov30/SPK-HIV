@@ -2,7 +2,9 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\Gejala;
 use App\Models\Lahan;
+use App\Models\Relasi;
 use Filament\Widgets\ChartWidget;
 
 class LahanDistrikChart extends ChartWidget
@@ -14,23 +16,33 @@ class LahanDistrikChart extends ChartWidget
     }
 
     protected static bool $isLazy = false;
-    protected static ?string $heading = 'Jumlah Lahan Per Distrik';
+    protected static ?string $heading = 'Jumlah Gejala Per Penyakit';
+
+    private function generateColorFromId($id): string
+    {
+        // Ambil 6 karakter pertama dari hash md5 ID, agar jadi warna hex
+        return '#' . substr(md5($id), 0, 6);
+    }
 
     protected function getData(): array
     {
-        $data = Lahan::selectRaw('distrik_id, COUNT(*) as total')
-            ->groupBy('distrik_id')
-            ->with('distrik')
+        $data = Relasi::selectRaw('penyakit_id, COUNT(*) as total')
+            ->groupBy('penyakit_id')
+            ->with('penyakit')
             ->get();
+
+        $backgroundColors = $data->pluck('penyakit_id')->map(function ($id) {
+            return $this->generateColorFromId($id);
+        })->toArray();
+
         return [
-            'labels' => $data->pluck('distrik.name')->toArray(),
+            'labels' => $data->pluck('penyakit.nama_penyakit')->toArray(),
             'datasets' => [
                 [
                     'data' => $data->pluck('total')->toArray(),
-                    'backgroundColor' => ['#ff6384', '#36a2eb', '#ffcd56'],
+                    'backgroundColor' => $backgroundColors,
                 ],
             ],
-            // 'labels' => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         ];
     }
 
