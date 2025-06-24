@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
+Route::match(['get', 'post'], '/gejala', [FrontController::class, 'gejala'])
+    ->name('front.gejala');
+// web.php
+Route::get('/hasil', [FrontController::class, 'hasil'])->name('front.hasil');
+Route::get('/ulang', [FrontController::class, 'ulang'])->name('front.ulang');
 Route::get('/data', [FrontController::class, 'data'])->name('front.data');
 Route::get('/data/detail-lahan/{lahan:slug}', [FrontController::class, 'detail'])->name('front.detail');
 Route::get('/peta', [FrontController::class, 'peta'])->name('front.peta');
