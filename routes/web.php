@@ -15,6 +15,9 @@ Route::match(['get', 'post'], '/gejala', [FrontController::class, 'gejala'])
 // web.php
 Route::get('/hasil', [FrontController::class, 'hasil'])->name('front.hasil');
 Route::get('/ulang', [FrontController::class, 'ulang'])->name('front.ulang');
+Route::get('/kembali', [FrontController::class, 'kembali'])->name('front.kembali');
+Route::get('/diri', [FrontController::class, 'diri'])->name('front.diri');
+Route::get('/hasil-pdf', [FrontController::class, 'hasilPdf'])->name('front.hasil.pdf');
 Route::get('/data', [FrontController::class, 'data'])->name('front.data');
 Route::get('/data/detail-lahan/{lahan:slug}', [FrontController::class, 'detail'])->name('front.detail');
 Route::get('/peta', [FrontController::class, 'peta'])->name('front.peta');

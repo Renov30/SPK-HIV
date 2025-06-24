@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Arr;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class FrontController extends Controller
 {
@@ -18,41 +20,51 @@ class FrontController extends Controller
      */
     public function gejala(Request $request)
     {
-        // ----- inisialisasi -----
-        $idPenyakit = 1;                       // sementara hard-code
-        $idGejala   = Session::get('gejala_id');   // step sekarang
+        $idPenyakit = 1;
+        $idGejala   = Session::get('gejala_id');
         $persen     = Session::get('persentase', []);
 
-        // Pertama kali kunjung → ambil gejala pertama penyakit tsb
-        if ($idGejala === null) {
+        // Jika belum ada data diri, simpan dulu ke session dan kembali tampilkan view
+        if (!Session::has('nama') && $request->isMethod('post')) {
+            Session::put('nama', $request->input('nama'));
+            Session::put('usia', $request->input('usia'));
+            Session::put('jenis_kelamin', $request->input('jenis_kelamin'));
+
+            // Ambil gejala pertama untuk mulai pertanyaan setelah submit
             $idGejala = DB::table('relasis')
                 ->where('penyakit_id', $idPenyakit)
                 ->orderBy('gejala_id')
                 ->value('gejala_id');
+
             Session::put('gejala_id', $idGejala);
+
+            return redirect()->route('front.gejala');
         }
 
-        // ----- jika form disubmit -----
+        // Jika semua sudah siap, mulai logika pertanyaan gejala
         if ($request->isMethod('post')) {
-            $jawab = $request->input('jawaban');        // "ya" | "tidak"
+            $jawab = $request->input('jawaban');
 
             if ($jawab === 'ulang') {
-                Session::flush(); // hapus semua data session
-                return redirect()->route('front.gejala'); // kembali ke awal pertanyaan
+                Session::flush();
+                return redirect()->route('front.gejala');
             }
 
             if ($jawab === 'ya') {
-                $persen[] = $idGejala;                  // simpan gejala ter-pilih
+                $persen[] = $idGejala;
             }
 
             Session::put('persentase', $persen);
-            Session::put('gejala_id', $idGejala + 1);   // ke gejala berikutnya
+            Session::put('gejala_id', $idGejala + 1);
 
-            return redirect()->route('front.gejala');   // PRG pattern
+            return redirect()->route('front.gejala');
         }
 
-        if ($idGejala > 27) {
+        // Setelah semua gejala selesai
+        $maxGejalaId = DB::table('gejalas')->max('id');
+        if ($idGejala > $maxGejalaId) {
             $penyakits = DB::table('penyakits')->get();
+            $hasilDiagnosa = [];
 
             foreach ($penyakits as $penyakit) {
                 // Ambil daftar gejala yang terkait dengan penyakit ini
@@ -70,16 +82,34 @@ class FrontController extends Controller
 
                 // Simpan dalam session dengan nama penyakit sebagai key
                 Session::put($penyakit->nama_penyakit, $hasil);
+                $hasilDiagnosa[$penyakit->nama_penyakit] = $hasil;
             }
+            // Simpan hasil terbesar ke DB
+            $penyakitTerbesar = Arr::sortDesc($hasilDiagnosa);
+            $namaPenyakit = array_key_first($penyakitTerbesar);
+            $persentaseTertinggi = $penyakitTerbesar[$namaPenyakit];
+
+            // Simpan ke DB
+            DB::table('hasil_diagnosa')->insert([
+                'nama' => Session::get('nama'),
+                'usia' => Session::get('usia'),
+                'jenis_kelamin' => Session::get('jenis_kelamin'),
+                'penyakit' => $namaPenyakit,
+                'persentase' => $persentaseTertinggi,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
 
             return redirect()->route('front.hasil');
         }
 
-
-        // ----- ambil teks gejala sekarang -----
-        $gejala = DB::table('gejalas')
-            ->where('id', $idGejala)
-            ->value('nama_gejala') ?? 'Gejala tidak ditemukan';
+        // Jika sudah mulai pertanyaan, ambil gejala sekarang
+        $gejala = null;
+        if (Session::has('gejala_id')) {
+            $gejala = DB::table('gejalas')
+                ->where('id', Session::get('gejala_id'))
+                ->value('nama_gejala') ?? 'Gejala tidak ditemukan';
+        }
 
         return view('front.gejala', compact('gejala'));
     }
@@ -109,6 +139,8 @@ class FrontController extends Controller
         return view('front.hasil', [
             'persentase' => $persentase,
             'solusi' => $solusi,
+            'penyakitDominan' => $penyakitDominan,
+            'nilaiDominan' => $maxVal,
         ]);
     }
 
@@ -117,5 +149,49 @@ class FrontController extends Controller
     {
         Session::flush(); // hapus semua data session
         return redirect()->route('front.gejala'); // arahkan ke halaman awal cek
+    }
+
+    public function kembali()
+    {
+        Session::flush(); // hapus semua data session
+        return redirect()->route('front.index');
+    }
+
+    public function diri()
+    {
+        return view('front.diri');
+    }
+
+    public function hasilPdf()
+    {
+        $penyakits = DB::table('penyakits')->get();
+        $persentase = [];
+
+        foreach ($penyakits as $penyakit) {
+            $persentase[$penyakit->nama_penyakit] = Session::get($penyakit->nama_penyakit, 0);
+        }
+
+        $maxVal = max($persentase);
+        $penyakitDominan = array_search($maxVal, $persentase);
+
+        $penyakit_id = DB::table('penyakits')
+            ->where('nama_penyakit', $penyakitDominan)
+            ->value('id');
+
+        $solusi = DB::table('solusis')
+            ->where('penyakit_id', $penyakit_id)
+            ->pluck('solusi');
+
+        $pdf = Pdf::loadView('front.hasil_pdf', [
+            'persentase' => $persentase,
+            'solusi' => $solusi,
+            'penyakitDominan' => $penyakitDominan,
+            'nilaiDominan' => $maxVal,
+            'nama' => Session::get('nama'),
+            'usia' => Session::get('usia'),
+            'jenis_kelamin' => Session::get('jenis_kelamin'),
+        ]);
+
+        return $pdf->download('hasil_diagnosa.pdf');
     }
 }
