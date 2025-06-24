@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('penyakits', function (Blueprint $table) {
             $table->id();
             $table->string('nama_penyakit');
+            $table->string('keterangan', 1000);
             $table->softDeletes();
             $table->timestamps();
         });
