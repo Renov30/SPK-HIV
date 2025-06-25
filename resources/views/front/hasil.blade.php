@@ -41,7 +41,7 @@
                 <div class="mt-8">
                     <a href="{{ route('front.ulang') }}" class="btn btn-light bg-white font-medium text-dark px-4 py-2 rounded hover:shadow-lg hover:opacity-90 duration-300 ease-in-out">Ulangi</a>
                     <a href="{{ route('front.hasil.pdf') }}" class="btn btn-light bg-white font-medium ml-2 text-dark px-4 py-2 rounded hover:shadow-lg hover:opacity-90 duration-300 ease-in-out">Cetak</a>
-                    <a href="{{ route('front.kembali') }}" class="btn btn-light bg-white font-medium ml-2 text-dark px-4 py-2 rounded hover:shadow-lg hover:opacity-90 duration-300 ease-in-out">Kembali</a>
+                    <a href="{{ route('front.kembali') }}" class="btn btn-light bg-white font-medium ml-2 text-dark px-4 py-2 rounded hover:shadow-lg hover:opacity-90 duration-300 ease-in-out">Selesai</a>
                 </div>
             </div>
         </div>
