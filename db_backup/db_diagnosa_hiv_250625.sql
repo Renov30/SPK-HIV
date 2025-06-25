@@ -11,7 +11,7 @@
  Target Server Version : 110702 (11.7.2-MariaDB)
  File Encoding         : 65001
 
- Date: 25/06/2025 13:41:01
+ Date: 25/06/2025 14:59:42
 */
 
 SET NAMES utf8mb4;
@@ -35,7 +35,7 @@ INSERT INTO `cache` VALUES ('356a192b7913b04c54574d18c28d46e6395428ab', 'i:1;', 
 INSERT INTO `cache` VALUES ('356a192b7913b04c54574d18c28d46e6395428ab:timer', 'i:1749595295;', 1749595295);
 INSERT INTO `cache` VALUES ('livewire-rate-limiter:a17961fa74e9275d529f489537f179c05d50c2f3', 'i:1;', 1750817768);
 INSERT INTO `cache` VALUES ('livewire-rate-limiter:a17961fa74e9275d529f489537f179c05d50c2f3:timer', 'i:1750817768;', 1750817768);
-INSERT INTO `cache` VALUES ('spatie.permission.cache', 'a:3:{s:5:\"alias\";a:4:{s:1:\"a\";s:2:\"id\";s:1:\"b\";s:4:\"name\";s:1:\"c\";s:10:\"guard_name\";s:1:\"r\";s:5:\"roles\";}s:11:\"permissions\";a:8:{i:0;a:4:{s:1:\"a\";i:1;s:1:\"b\";s:10:\"view lahan\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:2;}}i:1;a:4:{s:1:\"a\";i:2;s:1:\"b\";s:11:\"view galeri\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:2;}}i:2;a:4:{s:1:\"a\";i:3;s:1:\"b\";s:13:\"view produksi\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:2;}}i:3;a:4:{s:1:\"a\";i:4;s:1:\"b\";s:17:\"manage permission\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:4;a:4:{s:1:\"a\";i:5;s:1:\"b\";s:11:\"manage user\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:5;a:4:{s:1:\"a\";i:6;s:1:\"b\";s:12:\"manage roles\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:6;a:4:{s:1:\"a\";i:7;s:1:\"b\";s:14:\"view dashboard\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:2;}}i:7;a:4:{s:1:\"a\";i:8;s:1:\"b\";s:12:\"view distrik\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}}s:5:\"roles\";a:2:{i:0;a:3:{s:1:\"a\";i:1;s:1:\"b\";s:5:\"admin\";s:1:\"c\";s:3:\"web\";}i:1;a:3:{s:1:\"a\";i:2;s:1:\"b\";s:8:\"gapoktan\";s:1:\"c\";s:3:\"web\";}}}', 1750904108);
+INSERT INTO `cache` VALUES ('spatie.permission.cache', 'a:3:{s:5:\"alias\";a:4:{s:1:\"a\";s:2:\"id\";s:1:\"b\";s:4:\"name\";s:1:\"c\";s:10:\"guard_name\";s:1:\"r\";s:5:\"roles\";}s:11:\"permissions\";a:8:{i:0;a:4:{s:1:\"a\";i:1;s:1:\"b\";s:11:\"view gejala\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:2;}}i:1;a:4:{s:1:\"a\";i:2;s:1:\"b\";s:13:\"view penyakit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:2;}}i:2;a:4:{s:1:\"a\";i:3;s:1:\"b\";s:11:\"view solusi\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:2;}}i:3;a:4:{s:1:\"a\";i:4;s:1:\"b\";s:17:\"manage permission\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:4;a:4:{s:1:\"a\";i:5;s:1:\"b\";s:11:\"manage user\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:5;a:4:{s:1:\"a\";i:6;s:1:\"b\";s:12:\"manage roles\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:6;a:4:{s:1:\"a\";i:7;s:1:\"b\";s:14:\"view dashboard\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:2;}}i:7;a:4:{s:1:\"a\";i:8;s:1:\"b\";s:23:\"view riwayat konsultasi\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:2;}}}s:5:\"roles\";a:2:{i:0;a:3:{s:1:\"a\";i:1;s:1:\"b\";s:5:\"admin\";s:1:\"c\";s:3:\"web\";}i:1;a:3:{s:1:\"a\";i:2;s:1:\"b\";s:5:\"pakar\";s:1:\"c\";s:3:\"web\";}}}', 1750917529);
 
 -- ----------------------------
 -- Table structure for cache_locks
@@ -196,8 +196,6 @@ CREATE TABLE `hasil_diagnosas`  (
 -- Records of hasil_diagnosas
 -- ----------------------------
 INSERT INTO `hasil_diagnosas` VALUES (1, 'Furi', 35, 'Laki-laki', 'HIV Fase 1 (Periode Jendela)', 75, '{\"HIV Fase 1 (Periode Jendela)\":75,\"HIV Fase 2 (Masa Laten)\":20,\"HIV Fase 3 (Masa AIDS)\":0}', '2025-06-25 02:40:23', '2025-06-25 02:40:23');
-INSERT INTO `hasil_diagnosas` VALUES (2, 'Furi', 35, 'Laki-laki', 'HIV Fase 1 (Periode Jendela)', 75, '{\"HIV Fase 1 (Periode Jendela)\":75,\"HIV Fase 2 (Masa Laten)\":20,\"HIV Fase 3 (Masa AIDS)\":0}', '2025-06-25 02:46:15', '2025-06-25 02:46:15');
-INSERT INTO `hasil_diagnosas` VALUES (3, 'Furi', 35, 'Laki-laki', 'HIV Fase 1 (Periode Jendela)', 75, '{\"HIV Fase 1 (Periode Jendela)\":75,\"HIV Fase 2 (Masa Laten)\":20,\"HIV Fase 3 (Masa AIDS)\":0}', '2025-06-25 04:40:30', '2025-06-25 04:40:30');
 
 -- ----------------------------
 -- Table structure for job_batches
@@ -347,7 +345,7 @@ CREATE TABLE `model_has_roles`  (
 -- Records of model_has_roles
 -- ----------------------------
 INSERT INTO `model_has_roles` VALUES (1, 'App\\Models\\User', 1);
-INSERT INTO `model_has_roles` VALUES (1, 'App\\Models\\User', 2);
+INSERT INTO `model_has_roles` VALUES (2, 'App\\Models\\User', 2);
 INSERT INTO `model_has_roles` VALUES (2, 'App\\Models\\User', 4);
 
 -- ----------------------------
@@ -403,14 +401,14 @@ CREATE TABLE `permissions`  (
 -- ----------------------------
 -- Records of permissions
 -- ----------------------------
-INSERT INTO `permissions` VALUES (1, 'view lahan', 'web', '2025-03-20 00:37:58', '2025-03-20 23:42:37');
-INSERT INTO `permissions` VALUES (2, 'view galeri', 'web', '2025-03-20 00:37:58', '2025-03-20 23:42:55');
-INSERT INTO `permissions` VALUES (3, 'view produksi', 'web', '2025-03-20 00:37:58', '2025-03-20 23:43:17');
+INSERT INTO `permissions` VALUES (1, 'view gejala', 'web', '2025-03-20 00:37:58', '2025-06-25 05:57:57');
+INSERT INTO `permissions` VALUES (2, 'view penyakit', 'web', '2025-03-20 00:37:58', '2025-06-25 05:58:14');
+INSERT INTO `permissions` VALUES (3, 'view solusi', 'web', '2025-03-20 00:37:58', '2025-06-25 05:58:26');
 INSERT INTO `permissions` VALUES (4, 'manage permission', 'web', '2025-03-20 23:43:50', '2025-03-20 23:43:50');
 INSERT INTO `permissions` VALUES (5, 'manage user', 'web', '2025-03-20 23:44:04', '2025-03-20 23:44:04');
 INSERT INTO `permissions` VALUES (6, 'manage roles', 'web', '2025-03-20 23:44:19', '2025-03-20 23:44:19');
 INSERT INTO `permissions` VALUES (7, 'view dashboard', 'web', '2025-03-20 23:44:47', '2025-03-20 23:44:47');
-INSERT INTO `permissions` VALUES (8, 'view distrik', 'web', '2025-03-20 23:45:08', '2025-03-20 23:45:08');
+INSERT INTO `permissions` VALUES (8, 'view riwayat konsultasi', 'web', '2025-03-20 23:45:08', '2025-06-25 05:58:49');
 
 -- ----------------------------
 -- Table structure for produksis
@@ -520,6 +518,7 @@ INSERT INTO `role_has_permissions` VALUES (1, 2);
 INSERT INTO `role_has_permissions` VALUES (2, 2);
 INSERT INTO `role_has_permissions` VALUES (3, 2);
 INSERT INTO `role_has_permissions` VALUES (7, 2);
+INSERT INTO `role_has_permissions` VALUES (8, 2);
 
 -- ----------------------------
 -- Table structure for roles
@@ -539,7 +538,7 @@ CREATE TABLE `roles`  (
 -- Records of roles
 -- ----------------------------
 INSERT INTO `roles` VALUES (1, 'admin', 'web', '2025-02-19 13:53:24', '2025-02-19 13:53:24');
-INSERT INTO `roles` VALUES (2, 'gapoktan', 'web', '2025-02-19 13:53:24', '2025-02-19 13:53:24');
+INSERT INTO `roles` VALUES (2, 'pakar', 'web', '2025-02-19 13:53:24', '2025-06-25 05:57:40');
 
 -- ----------------------------
 -- Table structure for sessions
@@ -560,7 +559,7 @@ CREATE TABLE `sessions`  (
 -- ----------------------------
 -- Records of sessions
 -- ----------------------------
-INSERT INTO `sessions` VALUES ('07xkZAq1csmfmpr9BuSUx7pNXwlNQfVOAkcTpGg2', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'YToxNDp7czo2OiJfdG9rZW4iO3M6NDA6Ik9MTm43VzhOUE9aTjZYaTZzYUFKRVVJaEZXQWxaVFJHS0drb3JrU1kiO3M6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6MzoidXJsIjthOjA6e31zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czozMjoiaHR0cDovL2FwcGRpYWdub3NhaGl2LnRlc3QvaGFzaWwiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTIkUWZSNUtsQkxwVXRJZDNIU0JCZFZKZVVacy9XOFovS1hibFAzZGVvNHY1TzQybjN1cVdOcW0iO3M6NDoibmFtYSI7czo0OiJGdXJpIjtzOjQ6InVzaWEiO3M6MjoiMzUiO3M6MTM6ImplbmlzX2tlbGFtaW4iO3M6OToiTGFraS1sYWtpIjtzOjk6ImdlamFsYV9pZCI7aToyOTtzOjEwOiJwZXJzZW50YXNlIjthOjg6e2k6MDtpOjE7aToxO2k6MjtpOjI7aTozO2k6MztpOjU7aTo0O2k6NztpOjU7aTo4O2k6NjtpOjk7aTo3O2k6MTA7fXM6Mjg6IkhJViBGYXNlIDEgKFBlcmlvZGUgSmVuZGVsYSkiO2Q6NzU7czoyMzoiSElWIEZhc2UgMiAoTWFzYSBMYXRlbikiO2Q6MjA7czoyMjoiSElWIEZhc2UgMyAoTWFzYSBBSURTKSI7ZDowO30=', 1750826441);
+INSERT INTO `sessions` VALUES ('07xkZAq1csmfmpr9BuSUx7pNXwlNQfVOAkcTpGg2', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'YToxNTp7czo2OiJfdG9rZW4iO3M6NDA6Ik9MTm43VzhOUE9aTjZYaTZzYUFKRVVJaEZXQWxaVFJHS0drb3JrU1kiO3M6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6MzoidXJsIjthOjA6e31zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czozMjoiaHR0cDovL2FwcGRpYWdub3NhaGl2LnRlc3QvYWRtaW4iO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTIkUWZSNUtsQkxwVXRJZDNIU0JCZFZKZVVacy9XOFovS1hibFAzZGVvNHY1TzQybjN1cVdOcW0iO3M6NDoibmFtYSI7czo0OiJGdXJpIjtzOjQ6InVzaWEiO3M6MjoiMzUiO3M6MTM6ImplbmlzX2tlbGFtaW4iO3M6OToiTGFraS1sYWtpIjtzOjk6ImdlamFsYV9pZCI7aToyOTtzOjEwOiJwZXJzZW50YXNlIjthOjg6e2k6MDtpOjE7aToxO2k6MjtpOjI7aTozO2k6MztpOjU7aTo0O2k6NztpOjU7aTo4O2k6NjtpOjk7aTo3O2k6MTA7fXM6Mjg6IkhJViBGYXNlIDEgKFBlcmlvZGUgSmVuZGVsYSkiO2Q6NzU7czoyMzoiSElWIEZhc2UgMiAoTWFzYSBMYXRlbikiO2Q6MjA7czoyMjoiSElWIEZhc2UgMyAoTWFzYSBBSURTKSI7ZDowO3M6ODoiZmlsYW1lbnQiO2E6MDp7fX0=', 1750831178);
 
 -- ----------------------------
 -- Table structure for solusis
@@ -633,7 +632,7 @@ CREATE TABLE `users`  (
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (1, 'admin', 'admin@gmail.com', NULL, '$2y$12$QfR5KlBLpUtId3HSBBdVJeUZs/W8Z/KXblP3deo4v5O42n3uqWNqm', NULL, NULL, NULL, NULL, NULL, NULL, '2025-02-19 13:53:24', '2025-02-19 13:53:24');
-INSERT INTO `users` VALUES (2, 'putri', 'putri@gmail.com', NULL, '$2y$12$TiqXcMEIbIbz0xD/faQlKezd73d.D5e4IkYx6SpY1BZVrozkcHnW6', '-', 'Dwi Putri Fitrianingsih', 'Merauke', '2001-01-01', 'Mahasiswa', NULL, '2025-03-01 08:10:10', '2025-03-01 08:10:10');
+INSERT INTO `users` VALUES (2, 'diana', 'diana@gmail.com', NULL, '$2y$12$IskRfvooQrTu1hFCvEkN5OWEnoSo1IcHwwyUYRtFl0bO3YXvdg5PG', '-', 'Diana', 'Merauke', '2001-01-01', 'Mahasiswa', NULL, '2025-03-01 08:10:10', '2025-06-25 05:59:20');
 INSERT INTO `users` VALUES (4, 'renov', 'renov@gmail.com', NULL, '$2y$12$4hP1oCijA4912iZsboaKn..DIpbHS1p5UkvxMNr4CKdLDXCGeKgEm', '081343026394', 'Novgeny Ramadhalero Ermiawan', 'Maumere', '2001-11-30', 'Programmer', NULL, '2025-03-20 23:39:34', '2025-03-20 23:40:01');
 
 SET FOREIGN_KEY_CHECKS = 1;
