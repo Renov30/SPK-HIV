@@ -38,7 +38,7 @@
                                             Lanjut
                                         </button>
                                     </div>
-                                    <p class="text-xs text-white py-3 italic lg:text-xs">* isi data diri anda</p>
+                                    <p class="text-xs text-white py-3 italic lg:text-xs">* masukan data diri anda</p>
                                 @else
                                     {{-- Pertanyaan Gejala --}}
                                     <p class="mb-4 text-white lg:text-2xl">

@@ -11,7 +11,7 @@
                 <div class="px-4 w-full lg:w-1/2">
                     <h2 class="text-base font-medium text-primary py-3 lg:text-lg">Sistem Pakar Diagnosa HIV/AIDS</h2>
                     <h1 class="font-bold text-4xl py-3 leading-relaxed lg:text-6xl">Periksa Dirimu,<br><span class="text-primary">Kapan Saja</span></h1>
-                    <p class="text-base py-3 text-secondary leading-relaxed mb-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis quidem aperiam quis maiores necessitatibus minima quos, totam eaque blanditiis exercitationem?</p>
+                    <p class="text-base py-3 text-secondary leading-relaxed mb-5">Sistem Pakar kami membantu Anda melakukan deteksi dini HIV/AIDS secara mandiri, cepat, dan akurat — kapan saja Anda butuhkan.</p>
                     <div class="flex py-3 mb-7">
                         <a href="" class="text-white px-5 py-3 rounded-lg bg-primary hover:shadow-lg hover:opacity-90 transition duration-300 ease-in-out">Learn More</a>
                         <a href="{{route('front.gejala')}}" class="font-medium text-dark ml-3 flex px-5 py-3 rounded-lg bg-white border border-slate-400 hover:shadow-lg hover:border-slate-500 duration-300 ease-in-out" ><i data-feather="search" class="mr-2 text-primary"></i>Konsultasi</a>
@@ -26,14 +26,14 @@
                         alt="hero image" 
                         class="relative z-10 max-w-full mx-auto">
                         <span 
-                        class="absolute p-4 bg-white/90 top-3 max-w-[180px] -left-3 rounded-lg shadow-lg z-0 lg:w-full lg:left-8 lg:top-6">
+                        class="absolute p-4 bg-white/90 max-w-[180px] -left-3 rounded-lg shadow-lg z-0 lg:w-full lg:left-8 lg:top-8">
                             <ul class="list-disc list-inside text-gray-700 space-y-1 mb-3">
                                 <h4 class="font-bold text-sm lg:text-base">Kenapa SPKHIV?</h4>
                                 <li class="text-xs lg:text-sm">konsultasi cepat</li>
                                 <li class="text-xs lg:text-sm">konsultasi tepat</li>
                                 <li class="text-xs lg:text-sm">admin responsif</li>
                             </ul>
-                            <a href="" class="text-xs bg-primary text-white py-2 px-3 rounded-lg w-full block text-center lg:text-sm">Buat Akun</a>
+                            {{-- <a href="" class="text-xs bg-primary text-white py-2 px-3 rounded-lg w-full block text-center lg:text-sm">Buat Akun</a> --}}
                         </span>
                         <span class="absolute p-4 bg-white/90 bottom-4 -right-3 rounded-lg shadow-lg z-20 flex flex-col items-center lg:right-12">
                             <div class="relative flex items-center justify-center w-10 h-10 bg-primary rounded-full mb-2">
@@ -58,7 +58,7 @@
             <div class="flex flex-wrap w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
                     <h1 class="font-bold text-2xl text-white mb-10 leading-relaxed lg:text-3xl md:text-2xl lg:mb-5">Dapatkan Diagnosa Dengan Cepat</h1>
-                    <p class="text-sm text-white lg:text-base">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat numquam tempore eaque enim odit odio?</p>
+                    <p class="text-sm text-white lg:text-base">Dengan teknologi sistem pakar berbasis forward chaining, SPKHIV memberikan hasil analisis berdasarkan gejala yang Anda alami secara real-time dan terpercaya.</p>
                 </div>
                 <div class="grid md:grid-cols-4 md:gap-5">
                     <div class="bg-white p-5 rounded-lg flex md:flex-wrap items-center md:justify-between mb-7">
@@ -67,7 +67,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-base text-dark md:mb-4 md:text-lg">Masukkan Biodata</h4>
-                            <p class="text-sm text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium at voluptates ad autem expedita quos.</p>   
+                            <p class="text-sm text-secondary">Mulai dengan mengisi data dasar seperti nama, usia, dan jenis kelamin untuk membantu sistem mengenali profil Anda.</p>   
                         </div>
                     </div>
                     <div class="bg-white p-5 rounded-lg flex md:flex-wrap items-center md:justify-between mb-7">
@@ -76,7 +76,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-base text-dark md:mb-4 md:text-lg">Pilih Gejala</h4>
-                            <p class="text-sm text-secondary">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum repellat autem hic totam non id.</p>
+                            <p class="text-sm text-secondary">Pilih gejala-gejala yang Anda alami dari pertanyaan yang diajukan. Sistem akan mengolahnya untuk mendeteksi kemungkinan infeksi.</p>
                         </div>
                     </div>
                     <div class="bg-white p-5 rounded-lg flex md:flex-wrap items-center md:justify-between mb-7">
@@ -85,7 +85,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-base text-dark md:mb-4 md:text-lg">Dapatkan Diagnosa</h4>
-                            <p class="text-sm text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque nostrum saepe suscipit officiis quam tempora.</p>
+                            <p class="text-sm text-secondary">Setelah semua gejala dipilih, sistem akan menampilkan hasil analisis beserta tingkat kemungkinan terdiagnosa HIV/AIDS.</p>
                         </div>
                     </div>
                     <div class="bg-white p-5 rounded-lg flex md:flex-wrap items-center md:justify-between mb-7">
@@ -93,8 +93,8 @@
                             <i data-feather="book" class="text-white w-full md:w-12 md:h-12 h-10 p-1"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-base text-dark md:mb-4 md:text-lg">Lihat Riwayat</h4>
-                            <p class="text-sm text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo perspiciatis optio eaque, deserunt tempora minus!</p>
+                            <h4 class="font-bold text-base text-dark md:mb-4 md:text-lg">Simpan Diagnosa</h4>
+                            <p class="text-sm text-secondary">Simpan hasil diagnosa yang Anda dapatkan untuk keperluan konsultasi lanjutan atau sebagai catatan pribadi.</p>
                         </div>
                     </div>
                 </div>
@@ -111,16 +111,16 @@
                         <img src="{{asset('img/elderly-female-smiling-with-doctor-visiting-senior-patient-woman-hospital-ward.jpg')}}" alt="">
                     </div>
                     <div>
-                        <div class="mb-5">
-                            <h1 class="font-bold lg:text-3xl md:text-3xl lg:mb-5 text-dark leading-relaxed">Berdasarkan data <br> diagnosa <span class="text-primary">Terpercaya</span></h1> 
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta animi omnis aliquam dolore cumque iure aut modi reiciendis, autem deserunt!</p>
+                        <div class="mb-4">
+                            <h1 class="font-bold lg:text-3xl md:text-3xl lg:mb-4 text-dark leading-relaxed">Berdasarkan data <br> diagnosa <span class="text-primary">Terpercaya</span></h1> 
+                            <p>SPKHIV menggunakan basis data diagnosa dari sumber terpercaya untuk menghasilkan informasi yang akurat dan bisa dipertanggungjawabkan.</p>
                         </div>
                         <div class="bg-primary px-8 py-5 rounded-lg">
                             <div class="space-x-4 mb-4">
-                                <h1 class="font-bold lg:text-xl md:text-xl text-white leading-relaxed flex-1 mb-5">Forward Chaining Method</h1>
-                                <p class="text-white leading-relaxed flex-2 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus laudantium, laborum voluptates harum rem quasi amet quas!</p>
+                                <h1 class="font-bold lg:text-xl md:text-xl text-white leading-relaxed flex-1 mb-2">Forward Chaining Method</h1>
+                                <p class="text-white leading-relaxed flex-2 mb-2">Forward Chaining adalah metode penalaran yang memulai proses dari data gejala menuju kesimpulan diagnosis. Cocok untuk sistem berbasis aturan seperti deteksi HIV/AIDS.</p>
                             </div>
-                            <button class="bg-white py-3 px-5 rounded-lg mb-1">Lebih Lanjut</button>
+                            <button class="bg-white py-3 px-5 rounded-lg mb-1 hover:opacity-90 hover:shadow-lg hover:border-slate-500 duration-300 ease-in-out cursor-pointer">Learn More</button>
                         </div>
                     </div>
                 </div>
@@ -134,8 +134,8 @@
             <div class="w-full px-4">
                 <div class="bg-primary px-25 rounded-4xl grid grid-cols-2">
                     <div class=" py-20">
-                        <h3 class="font-medium text-white text-5xl mb-10 leading-normal">Kenali tim kami dengan lebih baik</h3>
-                        <a href=""><button class="font-medium text-dark text-base bg-white rounded-lg px-6 py-4 ">Learn More</button></a>
+                        <h3 class="font-medium text-white text-5xl mb-10 leading-normal">Kenali HIV dengan lebih baik</h3>
+                        <a href=""><button class="bg-white py-3 px-5 rounded-lg mb-1 hover:opacity-90 hover:shadow-lg hover:border-slate-500 duration-300 ease-in-out cursor-pointer">Learn More</button></a>
                     </div>
                     <div class="w-full relative">
                         <img src="{{asset('img/medium-shot-doctors-wearing-face-masks-tpb.png')}}" alt="" class="absolute bottom-0 right-0 h-[440px]">
@@ -150,7 +150,7 @@
         <div class="container">
             <div class="w-full px-4 mx-auto text-center">
                 <h1 class="font-bold text-2xl text-dark mb-5 leading-relaxed lg:text-4xl md:text-2xl opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition duration-500">Tech Stack Yang Digunakan</h1>
-                <p class="text-base text-dark mb-10 leading-relaxed lg:text-base md:text-base lg:mb-20 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition duration-500">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, sequi natus.</p>
+                <p class="text-base text-dark mb-10 leading-relaxed lg:text-base md:text-base lg:mb-20 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition duration-500">Aplikasi ini dibangun dengan teknologi modern untuk menjamin performa, keandalan, <br> dan keamanan sistem saat digunakan oleh pengguna.</p>
                 <div class="flex flex-wrap items-center justify-center">  
                     <img src="{{asset('img/icon/Logo.min.svg.png')}}" alt="" class="w-[200px] py-4 mx-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6">
                     <img src="{{asset('img/icon/Logo-2.png')}}" alt="" class="w-[200px] py-4 mx-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6">
