@@ -2,13 +2,14 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\HasilDiagnosa;
 use App\Models\Produksi;
 use Filament\Widgets\ChartWidget;
 use Illuminate\Support\Facades\DB;
 
 class ProduksiKuartal extends ChartWidget
 {
-    protected static ?string $heading = 'Jumlah Produksi Per Kuartal';
+    protected static ?string $heading = 'Jumlah Konsultasi Perbulan';
     protected static ?int $sort = 3;
     protected int | string | array $columnSpan = 'full';
 
@@ -16,56 +17,70 @@ class ProduksiKuartal extends ChartWidget
 
     protected function getData(): array
     {
-        // Ambil data produksi per kuartal dan tahun
-        $data = Produksi::select(
-            DB::raw('QUARTER(tanggal_produksi) as kuartal'),
-            DB::raw('YEAR(tanggal_produksi) as tahun'),
-            DB::raw('SUM(hasil_produksi) as total_produksi')
+        // Ambil data jumlah hasil diagnosa per bulan dan tahun
+        $data = HasilDiagnosa::select(
+            DB::raw('MONTH(created_at) as bulan'),
+            DB::raw('YEAR(created_at) as tahun'),
+            DB::raw('COUNT(*) as jumlah')
         )
-            ->groupBy('tahun', 'kuartal')
+            ->groupBy('tahun', 'bulan')
             ->orderBy('tahun')
-            ->orderBy('kuartal')
+            ->orderBy('bulan')
             ->get();
 
-        // Inisialisasi label (Q1, Q2, Q3, Q4) dan data
-        $labels = ['Q1', 'Q2', 'Q3', 'Q4'];
-        $dataPerTahun = [];
+        // Ambil daftar bulan dalam format angka dan label (Jan, Feb, dst)
+        $bulanLabels = [
+            1 => 'Jan',
+            2 => 'Feb',
+            3 => 'Mar',
+            4 => 'Apr',
+            5 => 'Mei',
+            6 => 'Jun',
+            7 => 'Jul',
+            8 => 'Agu',
+            9 => 'Sep',
+            10 => 'Okt',
+            11 => 'Nov',
+            12 => 'Des',
+        ];
 
         // Ambil semua tahun yang ada
         $tahunList = $data->pluck('tahun')->unique();
+        $dataPerTahun = [];
 
-        // Set default nilai 0 untuk setiap kuartal dalam setiap tahun
+        // Inisialisasi data default: setiap bulan = 0
         foreach ($tahunList as $tahun) {
-            $dataPerTahun[$tahun] = [0, 0, 0, 0];
+            $dataPerTahun[$tahun] = array_fill(0, 12, 0); // 12 bulan
         }
 
         // Isi data sesuai hasil query
         foreach ($data as $item) {
-            $dataPerTahun[$item->tahun][$item->kuartal - 1] = (float) $item->total_produksi;
+            $dataPerTahun[$item->tahun][$item->bulan - 1] = (int) $item->jumlah;
         }
 
-        // Buat dataset berdasarkan tahun
+        // Siapkan dataset chart
         $datasets = [];
-        $colors = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#C9CBCF']; // Warna untuk tiap tahun
+        $colors = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#C9CBCF'];
         $index = 0;
 
-        foreach ($dataPerTahun as $tahun => $values) {
+        foreach ($dataPerTahun as $tahun => $jumlahPerBulan) {
             $datasets[] = [
-                'label' => "Produksi Tahun {$tahun}",
-                'data' => $values,
-                'borderColor' => $colors[$index % count($colors)], // Ambil warna sesuai index
+                'label' => "Diagnosa {$tahun}",
+                'data' => $jumlahPerBulan,
+                'borderColor' => $colors[$index % count($colors)],
                 'backgroundColor' => 'transparent',
                 'fill' => false,
-                'tension' => 0.4, // Buat garis lebih smooth
+                'tension' => 0.4,
             ];
             $index++;
         }
 
         return [
-            'labels' => $labels,
+            'labels' => array_values($bulanLabels),
             'datasets' => $datasets,
         ];
     }
+
 
     protected function getType(): string
     {
