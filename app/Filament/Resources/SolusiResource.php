@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class SolusiResource extends Resource
 {
     protected static ?string $model = Solusi::class;
+    protected static bool $isLazy = false;
     protected static ?string $modelLabel = 'Solusi'; // Label untuk satu item
     protected static ?string $pluralModelLabel = 'Daftar Solusi'; // Label untuk daftar item
     protected static ?string $navigationLabel = 'Solusi'; // Label di sidebar

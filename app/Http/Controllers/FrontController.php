@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HasilDiagnosa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -90,12 +91,13 @@ class FrontController extends Controller
             $persentaseTertinggi = $penyakitTerbesar[$namaPenyakit];
 
             // Simpan ke DB
-            DB::table('hasil_diagnosa')->insert([
+            DB::table('hasil_diagnosas')->insert([
                 'nama' => Session::get('nama'),
                 'usia' => Session::get('usia'),
                 'jenis_kelamin' => Session::get('jenis_kelamin'),
                 'penyakit' => $namaPenyakit,
                 'persentase' => $persentaseTertinggi,
+                'persentase_all' => json_encode($hasilDiagnosa),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
@@ -192,6 +194,31 @@ class FrontController extends Controller
             'jenis_kelamin' => Session::get('jenis_kelamin'),
         ]);
 
-        return $pdf->download('hasil_diagnosa.pdf');
+        $namaPasien = preg_replace('/[^a-zA-Z0-9_-]/', '_', Session::get('nama'));
+        return $pdf->download('hasil_diagnosa_' . $namaPasien . '.pdf');
+    }
+
+    public function hasilPdfResource($id)
+    {
+        $data = HasilDiagnosa::findOrFail($id);
+
+        $persentase = json_decode($data->persentase_all ?? '{}', true);
+
+        // Ambil solusi dari penyakit terkait
+        $penyakit_id = DB::table('penyakits')
+            ->where('nama_penyakit', $data->penyakit)
+            ->value('id');
+
+        $solusi = DB::table('solusis')
+            ->where('penyakit_id', $penyakit_id)
+            ->pluck('solusi');
+
+        $pdf = Pdf::loadView('front.hasil_pdf_resource', [
+            'data' => $data,
+            'persentase' => $persentase,
+            'solusi' => $solusi,
+        ]);
+
+        return $pdf->download('hasil_diagnosa_' . $data->nama . '.pdf');
     }
 }
