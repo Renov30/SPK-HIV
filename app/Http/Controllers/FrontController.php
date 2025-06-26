@@ -16,6 +16,11 @@ class FrontController extends Controller
         return view('front.index');
     }
 
+    public function about()
+    {
+        return view('front.about');
+    }
+
     /**
      * Menampilkan pertanyaan gejala & memproses jawaban.
      */

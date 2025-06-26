@@ -10,11 +10,13 @@
     --font-sans: Figtree, ui-sans-serif, system-ui, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
-    --color-primary: #205781;
+    --color-primary: #2970a7;
     --color-dark: #0f172a;
     --container-padding: 24px; /* Padding default */
     --container-max-width: 1320px; /* Breakpoint untuk 2xl */
     --color-secondary: #1e293b;
+    --color-accent: #f39c12;
+    --color-fourth: #205781;
 }
 
 /*

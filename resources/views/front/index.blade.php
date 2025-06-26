@@ -9,11 +9,11 @@
             <div class="flex flex-wrap">
                 {{-- kiri start --}}
                 <div class="px-4 w-full lg:w-1/2">
-                    <h2 class="text-base font-medium text-primary py-3 lg:text-lg">Sistem Pakar Diagnosa HIV/AIDS</h2>
+                    <h2 class="text-base font-medium text-primary py-3 lg:text-lg">Sistem Pakar Diagnosa HIV/AIDS | About</h2>
                     <h1 class="font-bold text-4xl py-3 leading-relaxed lg:text-6xl">Periksa Dirimu,<br><span class="text-primary">Kapan Saja</span></h1>
                     <p class="text-base py-3 text-secondary leading-relaxed mb-5">Sistem Pakar kami membantu Anda melakukan deteksi dini HIV/AIDS secara mandiri, cepat, dan akurat — kapan saja Anda butuhkan.</p>
                     <div class="flex py-3 mb-7">
-                        <a href="" class="text-white px-5 py-3 rounded-lg bg-primary hover:shadow-lg hover:opacity-90 transition duration-300 ease-in-out">Learn More</a>
+                        <a href="{{route('front.about')}}#about-app" class="text-white px-5 py-3 rounded-lg bg-primary hover:shadow-lg hover:opacity-90 transition duration-300 ease-in-out">Learn More</a>
                         <a href="{{route('front.gejala')}}" class="font-medium text-dark ml-3 flex px-5 py-3 rounded-lg bg-white border border-slate-400 hover:shadow-lg hover:border-slate-500 duration-300 ease-in-out" ><i data-feather="search" class="mr-2 text-primary"></i>Konsultasi</a>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-base text-dark md:mb-4 md:text-lg">Masukkan Biodata</h4>
-                            <p class="text-sm text-secondary">Mulai dengan mengisi data dasar seperti nama, usia, dan jenis kelamin untuk membantu sistem mengenali profil Anda.</p>   
+                            <p class="text-gray-600">Mulai dengan mengisi data dasar seperti nama, usia, dan jenis kelamin untuk membantu sistem mengenali profil Anda.</p>   
                         </div>
                     </div>
                     <div class="bg-white p-5 rounded-lg flex md:flex-wrap items-center md:justify-between mb-7">
@@ -113,14 +113,16 @@
                     <div>
                         <div class="mb-4">
                             <h1 class="font-bold lg:text-3xl md:text-3xl lg:mb-4 text-dark leading-relaxed">Berdasarkan data <br> diagnosa <span class="text-primary">Terpercaya</span></h1> 
-                            <p>SPKHIV menggunakan basis data diagnosa dari sumber terpercaya untuk menghasilkan informasi yang akurat dan bisa dipertanggungjawabkan.</p>
+                            <p class="text-gray-600">SPKHIV menggunakan basis data diagnosa dari sumber terpercaya untuk menghasilkan informasi yang akurat dan bisa dipertanggungjawabkan.</p>
                         </div>
                         <div class="bg-primary px-8 py-5 rounded-lg">
                             <div class="space-x-4 mb-4">
                                 <h1 class="font-bold lg:text-xl md:text-xl text-white leading-relaxed flex-1 mb-2">Forward Chaining Method</h1>
                                 <p class="text-white leading-relaxed flex-2 mb-2">Forward Chaining adalah metode penalaran yang memulai proses dari data gejala menuju kesimpulan diagnosis. Cocok untuk sistem berbasis aturan seperti deteksi HIV/AIDS.</p>
                             </div>
-                            <button class="bg-white py-3 px-5 rounded-lg mb-1 hover:opacity-90 hover:shadow-lg hover:border-slate-500 duration-300 ease-in-out cursor-pointer">Learn More</button>
+                            <div class="my-5">
+                                <a href="{{route('front.about')}}#about-spk" class="bg-white py-3 px-5 rounded-lg mb-1 hover:opacity-90 hover:shadow-lg hover:border-slate-500 duration-300 ease-in-out">Learn More</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -135,7 +137,7 @@
                 <div class="bg-primary px-25 rounded-4xl grid grid-cols-2">
                     <div class=" py-20">
                         <h3 class="font-medium text-white text-5xl mb-10 leading-normal">Kenali HIV dengan lebih baik</h3>
-                        <a href=""><button class="bg-white py-3 px-5 rounded-lg mb-1 hover:opacity-90 hover:shadow-lg hover:border-slate-500 duration-300 ease-in-out cursor-pointer">Learn More</button></a>
+                        <a href="{{route('front.about')}}#about-hiv"><button class="bg-white py-3 px-5 rounded-lg mb-1 hover:opacity-90 hover:shadow-lg hover:border-slate-500 duration-300 ease-in-out cursor-pointer">Learn More</button></a>
                     </div>
                     <div class="w-full relative">
                         <img src="{{asset('img/medium-shot-doctors-wearing-face-masks-tpb.png')}}" alt="" class="absolute bottom-0 right-0 h-[440px]">

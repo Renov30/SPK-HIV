@@ -10,7 +10,7 @@
                     <nav id="nav-menu" class="hidden absolute py-5 bg-white rounded-lg shadow-lg max-w-[250px] right-4 top-full w-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none">
                         <ul class="block text-base text-dark mx-8 lg:flex">
                             <li><a href="{{route('front.index')}}" class="text-dark py-2 mx-5 flex hover:text-primary">Home</a></li>
-                            <li><a href="{{route('front.index')}}" class="text-dark py-2 mx-5 flex hover:text-primary">About</a></li>
+                            <li><a href="{{route('front.about')}}" class="text-dark py-2 mx-5 flex hover:text-primary">About</a></li>
                             <li><a href="{{route('filament.admin.auth.login')}}" class="text-dark py-2 mx-5 flex hover:text-primary" target="blank">Login</a></li> 
                         </ul>
                     </nav>
