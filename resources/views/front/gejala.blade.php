@@ -34,9 +34,10 @@
                                                 <option value="Perempuan">Perempuan</option>
                                             </select>
                                         </div>
-                                        <button type="submit" class="bg-primary text-white px-4 py-2 rounded hover:shadow-lg hover:opacity-90 transition duration-300 ease-in-out cursor-pointer">
+                                        <button type="submit" class="bg-primary text-white px-4 py-2 w-20 rounded hover:shadow-lg hover:opacity-90 transition duration-300 ease-in-out cursor-pointer">
                                             Lanjut
                                         </button>
+                                        <a href="{{ route('front.kembali') }}" class="bg-primary text-white px-4 py-2 ml-2 rounded hover:shadow-lg hover:opacity-90 transition duration-300 ease-in-out cursor-pointer">Kembali</a>
                                     </div>
                                     <p class="text-xs text-white py-3 italic lg:text-xs">* masukan data diri anda</p>
                                 @else
