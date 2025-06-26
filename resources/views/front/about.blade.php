@@ -7,10 +7,16 @@
     <section id="about" class="pt-36 mb-45">
         <div class="container"> 
             <div class="px-4 w-full">
-                <h2 class="text-base font-medium text-primary py-3 lg:text-lg mb-5">Sistem Pakar Diagnosa HIV/AIDS</h2>
-                <div class="text-center pt-40 ">
+                <h2 class="text-base font-medium text-primary py-3 lg:text-lg mb-5">Sistem Pakar Diagnosa HIV/AIDS | About</h2>
+                <div class="text-center pt-30 ">
                     <h1 class="font-bold text-4xl leading-relaxed lg:text-5xl animate-fadeIn">Tentang Sistem Pakar <span class="text-primary">Diagnosa</span> HIV</h1>
-                    <p class="text-base py-3 text-secondary leading-relaxed"">Sebuah solusi berbasis kecerdasan buatan untuk membantu diagnosis dini penyakit HIV</p>
+                    <p class="text-base py-3 mb-3 text-secondary leading-relaxed"">Sebuah solusi berbasis pengetahuan pakar untuk membantu diagnosis dini penyakit HIV</p>
+                    <a href="{{route('front.about')}}#about-app" class="inline-block bg-primary text-white px-8 py-3 rounded-full font-medium border border-slate-400 hover:bg-white hover:shadow-lg hover:border-slate-500 hover:text-primary transition duration-300 ease-in-out">
+                        <span class="flex items-center">
+                            <i data-feather="arrow-down" class="mr-2"></i>
+                            Pelajari Lebih Lanjut
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@
             <div class="flex flex-wrap">
                 {{-- kiri start --}}
                 <div class="px-4 w-full lg:w-1/2">
-                    <h2 class="text-base font-medium text-primary py-3 lg:text-lg">Sistem Pakar Diagnosa HIV/AIDS | About</h2>
+                    <h2 class="text-base font-medium text-primary py-3 lg:text-lg">Sistem Pakar Diagnosa HIV/AIDS</h2>
                     <h1 class="font-bold text-4xl py-3 leading-relaxed lg:text-6xl">Periksa Dirimu,<br><span class="text-primary">Kapan Saja</span></h1>
                     <p class="text-base py-3 text-secondary leading-relaxed mb-5">Sistem Pakar kami membantu Anda melakukan deteksi dini HIV/AIDS secara mandiri, cepat, dan akurat — kapan saja Anda butuhkan.</p>
                     <div class="flex py-3 mb-7">
