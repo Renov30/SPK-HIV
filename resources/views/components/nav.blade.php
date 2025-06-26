@@ -1,6 +1,6 @@
    {{-- nav start --}}
-    <header class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10">
-        <div class="container">
+    <header id="navbar" class="bg-white/90 fixed top-0 left-0 w-full flex items-center z-50 transition duration-300">
+       <div class="container">
             <div class="flex items-center justify-between relative">
                 <div class="px-4">
                     <a href="{{route('front.index')}}"  class="font-bold text-lg text-primary block py-6 lg:text-2xl">SPKHIV</a>
