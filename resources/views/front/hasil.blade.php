@@ -7,9 +7,9 @@
     <div class="container">
         <div class="w-full px-4">
             <h2 class="text-base font-medium text-primary py-3 lg:text-lg">Sistem Pakar Diagnosa HIV/AIDS | Hasil Diagnosa</h2>
-            <div class="bg-primary px-10 py-10 rounded-lg text-white">
-                <div class="mb-6 py-4 px-6 bg-white rounded shadow text-gray-800">
-                    <h3 class="text-xl font-semibold mb-2">Data Diri</h3>
+            <div class="bg-primary px-10 py-10 rounded-lg text-white mb-10">
+                <div class="mb-6 py-4 px-6 bg-white rounded shadow text-secondary">
+                    <h3 class="text-xl font-semibold mb-2">Informasi Data Diri</h3>
                     <p><strong>Nama:</strong> {{ Session::get('nama') }}</p>
                     <p><strong>Usia:</strong> {{ Session::get('usia') }} tahun</p>
                     <p><strong>Jenis Kelamin:</strong> {{ Session::get('jenis_kelamin') }}</p>
@@ -43,6 +43,17 @@
                     <a href="{{ route('front.hasil.pdf') }}" class="btn btn-light bg-white font-medium ml-2 text-dark px-4 py-2 rounded hover:shadow-lg hover:opacity-90 duration-300 ease-in-out">Cetak</a>
                     <a href="{{ route('front.kembali') }}" class="btn btn-light bg-white font-medium ml-2 text-dark px-4 py-2 rounded hover:shadow-lg hover:opacity-90 duration-300 ease-in-out">Selesai</a>
                 </div>
+            </div>
+            <div class="px-10 py-10 shadow-xl rounded-lg text-secondary">
+                <h4 class="text-2xl font-bold mb-5">Keterangan:</h4>
+                @forelse ($keteranganList as $k)
+                    <div class="flex items-start mb-2">
+                        <i data-feather="check-circle" class="w-5 h-5 flex-shrink-0 mt-1 mr-3 text-green-500"></i>
+                        <p>{{ $k }}</p>
+                    </div>
+                @empty
+                    <p>Keterangan tidak ditemukan.</p>
+                @endforelse
             </div>
         </div>
     </div>

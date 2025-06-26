@@ -139,12 +139,19 @@ class FrontController extends Controller
             ->where('nama_penyakit', $penyakitDominan)
             ->value('id');
 
+        $keterangan = DB::table('penyakits')
+            ->where('id', $penyakit_id)
+            ->value('keterangan');
+
+        $keteranganList = array_filter(array_map('trim', explode('•', $keterangan)));
+
         $solusi = DB::table('solusis')
             ->where('penyakit_id', $penyakit_id)
             ->pluck('solusi');
 
         return view('front.hasil', [
             'persentase' => $persentase,
+            'keteranganList' => $keteranganList,
             'solusi' => $solusi,
             'penyakitDominan' => $penyakitDominan,
             'nilaiDominan' => $maxVal,
