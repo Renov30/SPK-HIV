@@ -45,7 +45,9 @@
                 </div>
             </div>
             <div class="px-10 py-10 shadow-xl rounded-lg text-secondary">
-                <h4 class="text-2xl font-bold mb-5">Keterangan:</h4>
+                <h4 class="text-2xl font-bold mb-5">
+                    Penjelasan mengenai <strong class="font-bold">{{ ucfirst($penyakitDominan) }}</strong>
+                </h4>
                 @forelse ($keteranganList as $k)
                     <div class="flex items-start mb-2">
                         <i data-feather="check-circle" class="w-5 h-5 flex-shrink-0 mt-1 mr-3 text-green-500"></i>
